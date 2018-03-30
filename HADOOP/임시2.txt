@@ -1,0 +1,78 @@
+CREATE TABLE airline_delay(
+Year INT,
+MONTH INT,
+DayofMonth INT,
+DayofWeek INT,
+DepTime INT,
+CRSDepTime INT,
+ArrTime INT,
+CRSArrTime INT,
+UniqueCarrier STRING,
+FlightNum INT,
+TailNum STRING,
+ActualElapsedTime INT,
+CRSElapsedTime INT,
+AirTime INT,
+ArrDelay INT,
+DepDelay INT,
+Origin STRING,
+Dest STRING,
+Distance INT,
+TaxiIn INT,
+TaxiOut INT,
+Cancelled INT,
+CancellationCode STRING
+COMMENT 'A = carrier, B = weather, C = NAS, D = security',
+Diverted INT COMMENT '1 = yes, 0 = no',
+CarrierDelay STRING,
+WeatherDelay STRING,
+NASDelay STRING,
+SecurityDelay STRING,
+LateAircraftDelay STRING)
+COMMENT 'TEST DATA'
+PARTITIONED BY (delayYear INT)
+ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    STORED AS TEXTFILE;
+
+
+CREATE TABLE carrier_code(Code String, Description String)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE;
+
+LOAD DATA LOCAL INPATH '/root/airline/2006.csv'
+OVERWRITE INTO TABLE airline_delay
+partition(delayYear='2006');
+
+select A.Year, A.UniqueCarrier, B.Description, COUNT(*)
+from airline_delay A join carrier_code B
+on (A.UniqueCarrier= substr(B.Code,2,2))
+where A.ArrDelay > 0
+Group by A.Year, A.UniqueCarrier, B.Description;
+
+select A.Year, A.UniqueCarrier, B.Description, COUNT(*)
+from airline_delay A join carrier_code B
+on (A.UniqueCarrier = B.Code)
+where A.ArrDelay > 0
+Group by A.Year, A.UniqueCarrier, B.Description;
+
+
+create table fisher_product(Date INT, NationalCode STRING,
+Port STRING, Rank INT, Weight INT, Dollor INT, TotalW INT, TotalD INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE;
+
+LOAD DATA LOCAL INPATH '/root/port/fisher_products.csv'
+OVERWRITE INTO TABLE fisher_product;
+
+select year,month,count(*) from airline_delay where delayYear=2006 and Arrdelay > 0
+group by year, month
+
+select NationalCode, Weight
+from fisher_product
+where rank<10 and port='I';
