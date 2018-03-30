@@ -1,0 +1,442 @@
+1  vi /etc/sysconfig/network-scripts/
+    2  cd /etc/sysconfig/network-scripts/
+    3  ls
+    4  gedit ifcfg-en33
+    5  vi  ifcfg-en33
+    6  vi ifcfg-en33
+    7  vi ifcfg-ens33 
+    8  vi /etc/sysconfig/network-scripts/ifcfg-ens33 
+    9  systemctl restart network
+   10  ifconfig ens33
+   11  gedit /etc/sysconfig/selinux 
+   12  java -version
+   13  ls /userlocal
+   14  ls
+   15  cd 다운로드
+   16  tar xfz jdk-9.0.4_linux-x64_bin.tar.gz.tar.gz
+   17  tar xfz 
+   18  tar xfz eclipse-jee-oxygen-2-linux-gtk-x86_64.tar.gz 
+   19  ls
+   20  java -version
+   21  yum list intalled | grep jdk
+   22  alternatives --config java
+   23  cp -r eclipse/usr/local
+   24  cp -r eclipse /usr/local
+   25  cd
+   26  ls
+   27  cd 다운로드
+   28  cp -r jdk-9.0.4  /usr/local
+   29  cd
+   30  alternatives --config java
+   31  ls
+   32  java -version
+   33  cd 다운로드
+   34  ls
+   35  cp -r jdk-9.0.4 /usr/local
+   36  ls
+   37  cd 다운로드
+   38  ls
+   39  cd
+   40  cd bin
+   41  ls
+   42  cd ..
+   43  ls
+   44  cd usr
+   45  cd bin
+   46  ln -s /usr/local/jdk-9.0.4/java java
+   47  java -version
+   48  cd
+   49  java
+   50  ls
+   51  cd /usr/bin
+   52  ls
+   53  java -version
+   54  ls jav
+   55  ls java
+   56  cd ..
+   57  ls bin
+   58  cd bin
+   59  cd /usr/bin
+   60  ls java
+   61  ls
+   62  cd /usr/bin
+   63  ls
+   64  ls java
+   65  ls eclipse 
+   66  cd
+   67  java -version
+   68  eclipse 
+   69  ping server1
+   70  ps aux | grep
+   71  echo "$!"
+   72  ip config
+   73  config
+   74  server1
+   75  java -version
+   76  ping server1
+   77  ls 
+   78  cd 다운로드
+   79  wget http://apache.mirror.cdnetworks.com/hadoop/core/hadoop-1.2.1/hadoop-1.2.1.tar.gz
+   80  ls
+   81  tar xvf hadoop-1.2.1.tar.gz
+   82  cp -r hadoop-1.2.1 /usr/local
+   83  vi /etc/profile
+   84  . /etc/profile
+   85  set
+   86  $PATH
+   87  ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+   88  cd
+   89  ssh server1
+   90  ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+   91  exit
+   92  rm -rf authorized_keys
+   93  ls
+   94  cd .ssh
+   95  ls
+   96  cd
+   97  exit
+   98  vi /etc/hosts
+   99  ssh server2
+  100  cd ssh
+  101  cs .ssh/
+  102  cd .ssh
+  103  ls
+  104  scp authorized_keys root@server2:/root
+  105  cd
+  106  ssh server2
+  107  ssh-copy-id-i /root/.ssh/authorized_keys root@server2
+  108  ssh-copy-id -i /root/.ssh/authorized_keys root@server2
+  109  ssh-copy-id -i /root/.ssh/id_dsa.pub root@server2
+  110  cd .ssh
+  111  ssh-copy-id -i /root/.ssh/id_dsa.pub root@server2
+  112  cd
+  113  cd 
+  114  ssh server2
+  115  touch server1.txt
+  116  scp server1.txt root@server2:/root
+  117  ssh-copy-id -i /root/.ssh/id_dsa.pub root@server2
+  118  touch server2_2.txt
+  119  scp server2_2.txt root@server2:/root
+  120  cd /usr/local/hadoop-1.2.1/
+  121  ls
+  122  cd conf
+  123  cd
+  124  cd /usr/local/hadoop-1.2.1/
+  125  cd conf
+  126  ls
+  127  vi core-site.xml 
+  128  vi hdfs-site.xml
+  129  vi mapred-site.xml
+  130  vi core-site.xml 
+  131  vi hdfs-site.xml
+  132  systemctl stop firewalld
+  133  systemctl disable  firewalld
+  134  vi hadoop-env.sh
+  135  reboot
+  136  hadoop
+  137  vi /etc/profile
+  138  vi /etc/home
+  139  hadoop namenode -format
+  140  cd hadoop-1.2.1/
+  141  cd hadoop-1.2.1
+  142  cd /usr/local/hadoop-1.2.1
+  143  ls
+  144  start-all.sh
+  145  ls
+  146  jps
+  147  start-all.sh
+  148  ls
+  149  stop-all.sh
+  150  ls
+  151  rm- rf name
+  152  rm -rf name
+  153  rm -rf data
+  154  hadoop namenode -format
+  155  ls
+  156  jps
+  157  start-all.sh
+  158  ls
+  159  jps
+  160  stop-all.sh
+  161  ls
+  162  rm -rf name
+  163  ls
+  164  cd
+  165  hadoop namenode -format
+  166  hadoop
+  167  start-all.sh
+  168  jps
+  169  cd /usr/local/hadoop-1.2.1/
+  170  vi marpred-site.xml
+  171  vi core-site.xml
+  172  ls
+  173  cd conf
+  174  ls
+  175  vi core-site.xml
+  176  vi hdfs-site.sml
+  177  vi hdfs-site.xml
+  178  cd
+  179  .
+  180  reboot
+  181  hadoop
+  182  cd /usr/local/hadoop-1.2.1/
+  183  ls
+  184  start-all.sh
+  185  ks
+  186  ls
+  187  jps
+  188  ls
+  189  cd 다운로드
+  190  vi /etc/profile
+  191  cd
+  192  cd /usr/local/hadoop-1.2.1/conf
+  193  ls
+  194  vi core-site.xml 
+  195  vi hdfs-site.xml 
+  196  vi mapred-site.xml 
+  197  vi hadoop-env.sh
+  198  cd
+  199  jps
+  200  start-all.sh
+  201  jps
+  202  stop-all.sh
+  203  cd /usr/local/hadoop-1.2.1/conf
+  204  vi core-site.xml 
+  205  vi hdfs-site.xml 
+  206  vi core-site.xml 
+  207  vi hdfs-site.xml 
+  208  vi mapred-tra
+  209  ls
+  210  vi mapred-site.xml 
+  211  start-all.sh
+  212  ls
+  213  cd
+  214  cd /usr/local/hadoop-1.2.1/
+  215  hadoop dfs mkdir /test
+  216  hadoop dfs -mkdir /test
+  217  hadoop dfs -put
+  218  hadoop dfs -put README.txt  /test
+  219  hadoop dfs -mkdir /data
+  220  hadoop jar hadoop-examples-1.2.1.jar word count /test /data 
+  221  hadoop jar hadoop-examples-1.2.1.jar word count /test /result
+  222  hadoop jar hadoop-examples-1.2.1.jar wordcount /test /result
+  223  cd src
+  224  ls
+  225  cd examples/
+  226  cd apache
+  227  cd org
+  228  cd apache
+  229  cd hadoop
+  230  ls
+  231  cd examples
+  232  pwd
+  233  ls
+  234  vi WordCount.java
+  235  cd
+  236  cd /usr/local/hadoop-1.2.1/config
+  237  cd /usr/local/hadoop-1.2.1/
+  238  cd conf
+  239  vi core-site.xml 
+  240  vi hdfs
+  241  vi hdfs-site.xml 
+  242  cd /usr/local/hadoop-1.2.1/conf
+  243  vi core-site.xml 
+  244  cd
+  245  hadoop
+  246  hadoop dfs -ls 
+  247  start-all.sh
+  248  jps
+  249  haddop dfs -ls
+  250  hadoop dfs -ls
+  251  cd /usr/local/hadoop-1.2.1/conf
+  252  vi hdfs.xml
+  253  vi mapred-site.xml 
+  254  cd
+  255  ls
+  256  cd airline
+  257  bzip2 -d 2006.csv.bz2 
+  258  bzip2 -d 2007.csv.bz2 
+  259  bzip2 -d 2008.csv.bz2 
+  260  cd
+  261  ls
+  262  cd 다운로드
+  263  rpm -Uvh 
+  264  rpm-Uvh MariaDB-10.0.15-centos7_0-x86_64-client.rpm 
+  265  rpm -Uvh MariaDB-10.0.15-centos7_0-x86_64-client.rpm 
+  266  yum -y remove mariadb-libs
+  267  yum -y localinstall MariaDB*
+  268  systemctl restart mysql
+  269  systemctl status  mysql
+  270  chkconfig mysql on
+  271  mysqladmin -u root password '111111'
+  272  myslq -u root -p
+  273  mysql -u root -p
+  274  mysql -u hive -p
+  275  tar xvfz apache-hive-1.0.1-bin.tar.gz 
+  276  ls
+  277  cp -r apache-hive-1.0.1-bin /usr/local/hive-1.0.1
+  278  vi /etc/profile
+  279  cd
+  280  cd 다운로드
+  281  vi /etc/profile
+  282  cd
+  283  cd /usr/local/hadoop-1.2.1/conf
+  284  touch hive-site.xml
+  285  vi hive-site.xml
+  286  cd
+  287  cd 다운로드
+  288  ls
+  289  cp mariadb-java-client-1.3.5.jar /usr/local/hive-1.0.1/lib
+  290  hadoop dfs -mkdir /user/root/warehouse
+  291  hadoop dfs -mkdir /tmp/root
+  292  hadoop dfs -chmod 777 /tmp/root
+  293  hadoop dfs -chmod 777  /user/root/warehouse
+  294  hive
+  295  reboot
+  296  start-all.sh
+  297  hive
+  298  hadoop dfs -chmod 777 /tmp/hive
+  299  hadoop dfs -mkdir /tmp
+  300  hadoop dfs -chmod 777  /tmp
+  301  vi /usr/local/hive-1.0.1/conf
+  302  reboot
+  303  mysql
+  304  mysql -u root -p
+  305  jps
+  306  cd /usr/local/hadoop-1.2.1/
+  307  rm -rf data
+  308  rm -rf name
+  309  cd
+  310  ls
+  311  cd 다운로드 
+  312  tar xfz jdk-8u161-linux-x64.tar.gz 
+  313  cp -r jdk-8u161-linux-x64.tar.gz /usr/local/jdk1.8.0_161
+  314  cd
+  315  cd /usr/bin
+  316  ls
+  317  cd
+  318  cd /usr/local
+  319  ls
+  320  cd 
+  321  cd /usr/bin
+  322  rm -rf java
+  323  ls java
+  324  cd
+  325  in -s /usr/local/jdk1.8.0_161/bin/java java
+  326  ln -s /usr/local/jdk1.8.0_161/bin/java java
+  327  java
+  328  vi /etc/profile
+  329  reboot
+  330  java
+  331  ls
+  332  cd /usr/bin
+  333  cd
+  334  jps
+  335  stop-all.sh
+  336  cd /usr/bin
+  337  cd
+  338  cd /usr/bin
+  339  jav
+  340  ls java
+  341  ln -s /usr/local/jdk1.8.0_161/bin/java java
+  342  cd
+  343  cd /usr/local/hadoop-1.2.1/
+  344  rm -rf data
+  345  rm -rf name
+  346  cd conf
+  347  vi hadoop-env.sh 
+  348  cd
+  349  cd /usr/local
+  350  ls
+  351  rm -rf hive-1.0.1/
+  352  ls
+  353  ls 
+  354  cd
+  355  ls
+  356  cd 다운로드
+  357  cp -r apache-hive-1.0.1-bin /usr/local/hive-1.0.1
+  358  cd
+  359  vi /etc/profile
+  360  cd /usr/local
+  361  java
+  362  ls
+  363  java -version
+  364  cd
+  365  cd /usr/bin
+  366  ln -s /usr/local/jdk1.8.0_161/bin/java java
+  367  cd
+  368  ks
+  369  ls
+  370  java
+  371  java -version
+  372  cd /usr/bin
+  373  jAVA
+  374  java
+  375  reboot
+  376  hadoop dfs -mkdir /tmp/hive
+  377  hadoop dfs -chmod 777  /tmp/hive
+  378  hive
+  379  java
+  380  java -version
+  381  kill-all
+  382  hadoop
+  383  hadoop namenode -format
+  384  start-all.sh
+  385  jps
+  386  hadoop dfs -mkdir /tmp/hive
+  387  hadoop dfs -chmod 777  /tmp/hive
+  388  ls
+  389  hadoop dfs -chmod 777 /tmp
+  390  hive
+  391  cd conf
+  392  cd /usr/local
+  393  cd /hive
+  394  cd hive-1.0.1/
+  395  cd conf
+  396  touch hive-site.xml
+  397  vi hive-site.xml 
+  398  cd
+  399  ls
+  400  cd 다운로드
+  401  cp mariadb-java-client-1.3.5.jar /usr/local/hive-1.0.1/lib
+  402  cd
+  403  hive
+  404  ls
+  405  cd /usr/bin
+  406  ln -s /usr/local/jdk1.8.0_161/bin/java java
+  407  java -version
+  408  cd 
+  409  ls
+  410  hive
+  411  jps
+  412  stop-all.sh
+  413  hadoop
+  414  cd /usr/local/hadoop-1.2.1/
+  415  ls
+  416  rm -rf name
+  417  rm -rf data
+  418  cd
+  419  hadoop namenode -format
+  420  start-all.sh
+  421  jps
+  422  vi hadoop-env.sh
+  423  cd /usr/local/hadoop-1.2.1/conf
+  424  vi hadoop-env.sh 
+  425  ps -ef | grep 
+  426  cd
+  427  start-all/sh
+  428  start-all.sh
+  429  mysql -u hive -p
+  430  cd airline
+  431  ls
+  432  hive
+  433  ifconfig
+  434  hive
+  435  hive --service hiveserver2
+  436  history
+  437  start-all.sh 
+  438  hive
+  439  stop-all.sh 
+  440  cd
+  441  cd 다운로드
+  442  history
