@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	header{
+		   text-shadow: 5px 2px 10px gray;
+	}
+	  .inputForm{
+      border-radius:5px;
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+   }
+   
+</style>
+<body>
+ <header>
+ 	<h1>회원 정보를 입력하십시오.</h1>
+ 	<hr>
+ </header>
+ 
+ <form method="post" action="/mvc/member">
+		 <input type="text" class="inputForm" name="guestName"placeholder="이름을 입력하세요" required>
+		 <br>
+		 <input type="tel" class="inputForm" name="telphone" placeholder="전화번호를 입력하세요." required>
+		 <br>
+		 <input type="text" class="inputForm" name="id" placeholder="계정을 입력하세요." required>
+		 <br>
+		 <input type="password" class="inputForm" name="password" placeholder="패스워드를 입력하세요." required>
+		 <br>
+		 <br>
+	<input type="submit" class="inputForm" value="요청">
+	<input type="reset" class="inputForm" value="재작성">
+</form>
+</body>
+</html>
