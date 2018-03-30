@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+function func(flag)
+{
+	if(flag==true)
+		document.write("이 것 은 밑 에 쓰 여 진 다  ㅋ  ㅋ ㅋ ㅋ ㅋ ㅋ");
+	else{
+		
+		document.getElementById("target").innerHTML="이 것 은 밑 에 쓰 여 진 다  ㅋ  ㅋ ㅋ ㅋ ㅋ ㅋ.<br>";
+		//그 유명한 innerHtml 개행문자를 읽을 수있다. dom이라고도 한다.
+	} 
+		
+	
+}
+	document.write("<h2>zzzz</h2>");
+</script>
+<output id="target">
+	
+</output>
+<button onclick="func(true)">ㅋㅋㅋ</button>
+
+<button onclick="func(false)">ㅋㅋㅋ</button>
+
+</body>
+</html>

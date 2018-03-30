@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="util.js"></script>
+
+</head>
+<body>
+<h2>자바 스크립트 객체(리터럴 방식)</h2>
+
+<hr>
+
+<script>
+	var obj={
+			name: "듀크",
+			eat:function(food){
+				print(this.name + "가 "+ food 
+						+"를 먹어요!","h3");
+			}//같은 객체안에 있는 맴버여도 접근할때는 this.을 붙여야 한다.
+	}
+	obj.eat("피자");
+	obj.eat("피자");
+	obj.eat("치킨");
+	obj.name="턱시";
+	obj.eat("바나나");
+	obj.subject="자바스크립트";
+	obj.study=function (){
+		print(this.name+ "가"+this.subject+"를 학습합니다.","h3");
+	}
+	
+	obj.study();
+	delete obj.subject;
+	obj.study();
+	
+	print("결과:"+obj,"h3");
+	
+	print(obj,"h1");
+
+	obj["name"]="안드로보아";
+	obj.eat("사과");
+	
+hr();
+	for(var key in obj)
+			print(obj[key],"h4");
+	
+
+	hr();
+	for(var key in obj)
+		print(key+"===="+obj[key],"h4");
+
+	hr();
+	for(var key in obj)
+		print(key+"===="+obj.key,"h4");
+	//java는 : 배열 콜랙션 javascript는 배열 객체 모든게 다올 수 있다.
+	
+	
+</script>
+
+
+
+</body>
+</html>

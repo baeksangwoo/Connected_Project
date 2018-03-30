@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> 자바스크립트의 타입</h1>
+
+<pre>
+
+
+
+<script>
+	var num=100; //undefined
+	var num;	 //값을 넣어 주지 않고 선언만 하면 걍 개 무시 당한다.
+	document.write(num+"</br>");
+
+	document.write(num+123+"</br>");
+	num="299";
+	document.write(num+123);
+	
+	document.write(typeof 100);
+	document.write(typeof '가나다'+"</br>");
+	document.write(typeof false+"</br>");
+	document.write(typeof [1,2,3]+"</br>");
+	document.write(typeof new Date()+"</br>");
+	
+	var v1;
+	document.write(typeof v1+"</br>");
+	var n1="홍길동";
+	var n2="아니야"
+	var n3="홍길동";
+	if(n1==n2)
+	{
+		document.write(true+"</br>");	
+	}
+	else
+	{
+		document.write(false+"</br>");	
+	}
+	
+	if(n1==n3)
+	{
+		document.write(true+"</br>");	
+	}
+	else
+	{
+		document.write(false+"</br>");	
+	}
+	
+</script>
+</pre>
+</body>
+</html>

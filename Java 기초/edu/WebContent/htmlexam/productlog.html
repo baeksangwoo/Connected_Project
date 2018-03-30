@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+ <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+ <style>
+ 	img{
+		border : 1px solid black;
+		box-shadow: 10px 10px 10px 0px gray;
+		margin: 20px;
+		inline-block;
+		
+		width: 180px;
+		height:180px;
+		
+ 	}
+ 	div{
+		margin:auto;
+	   text-align: center;
+
+ 	}
+ </style>
+
+<body>
+<h2>원하는 상품을 클릭해 주세요!! 마구마구 ^^</h2>
+<hr>
+
+<div>
+	<img id="p001" class="imgbox" src="../blosom.gif"  onclick="myfunction(id)" ></img>
+	<img id="p002" class="imgbox" src="../green.png"   onclick="myfunction(id)" ></img>
+	<img id="p003" class="imgbox" src="../flower.jpg"  onclick="myfunction(id)" ></img>
+	<img id="p004" class="imgbox" src="../pink.jpg"  onclick="myfunction(id)" ></img>
+	<img id="p005" class="imgbox" src= "../swer.jpg"  onclick="myfunction(id)" ></img>
+</div>
+<div>
+	<img id="p006" class="imgbox" src="../water.jpg"  onclick="myfunction(id)" ></img>
+	<img id="p007" class="imgbox" src="../sdfd.jpg"  onclick="myfunction(id)" ></img>
+	<img id="p008" class="imgbox" src="../mango.jpg"  onclick="myfunction(id)" ></img>
+	<img id="p009" class="imgbox" src="../herb.jpg" onclick="myfunction(id)" ></img>
+	<img id="p0010" class="imgbox"  src="../hrydra.jpg" onclick="myfunction(id)" ></img>
+</div>
+
+
+<script>
+function myfunction(num){    
+        location.href="/edu/basket2?productID="+num;
+};
+</script>
+</body>
+</html>

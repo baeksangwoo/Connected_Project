@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>첫 번째 HTML</title>
+<style>
+	a {
+		text-decoration : none;		
+	}
+	img:hover { 
+		opacity : 0.4;
+		height : 200%;
+	}
+	#Second img:hover{
+	
+		opacity : 0.8;
+		height : 200%;
+	}
+	
+	.grow img {
+	  height: 300px;
+	  width: 300px;
+	 
+	  -webkit-transition: all 1s ease;
+	     -moz-transition: all 1s ease;
+	       -o-transition: all 1s ease;
+	      -ms-transition: all 1s ease;
+	          transition: all 1s ease;
+	}
+ 
+.grow img:hover {
+	  width: 400px;
+	  height: 400px;
+	}
+	a{
+		color: #ccff66;
+		background-color: #1166ff; 
+		
+	}
+	
+	
+	h2 { 
+		color: #66ffcc;
+		
+	}
+	
+	.color{
+	
+		color: #ccff66;
+		background-color: #3366ff;
+	}
+
+	.box{
+		font-weight: bold;
+		color: green;
+	}
+	.cud{
+		font-weight: sharp;
+			border: 1px dotted red;
+	}
+		
+</style>
+</head>
+<body>
+
+<h1> HTML 테스트</h1>
+<h2 class = "color"> HTML 태스트</h2>
+<h3> HTML 태스트</h3>
+<h4> HTML 태스트</h4> 
+
+<h2> 색깔 맞추기~</h2>
+ 
+<h2> 색깔 맞추기~</h2>
+ 
+<h2 class = "color"> 색깔 맞추기~</h2>
+ 
+ <h2>ordered list</h2>
+ <ul>
+	<li>떡볶이</li>
+	<li>스테이크</li>
+	<li>보쌈</li>
+	<li>두부 두루치기</li>
+	<li>꼬리곰탕</li>
+	
+</ul>
+
+ <p>unordered list</p>
+ <ol>
+	<li>떡볶이</li>
+	<li>스<span class="cud">테이</span>크</li>
+	<li>보<span class="box cud">쌈</span></li>
+	<li>두부 두루치기</li>
+	<li>꼬리곰탕</li>
+	
+</ol>
+
+
+
+<table border ="1"> 
+<caption> 이번 학기 시간표 </caption>
+	<tr><th colspan="4">시간표</th></tr>
+	<tr> <th> / </th><th>월요일</th><th>화요일</th><th>수요일</th></tr>
+	<tr><td>1교시</td><td>c 언어</td><td>java 언어</td><td>javaScript 언어</td></tr>
+	<tr><th>2교시</th><th>C 언어</th><th>java 언어</th><th>javaScript 언어</th></tr>
+</table>
+
+<pre> 테스트 완벽 </pre>
+
+<P> x<sup>2</sup>
+
+<img id="Second" src="images/fi.jpg" width="200">
+
+<div class="grow pic">
+<img src= "/edu/images/newChicken.jpg"> 
+
+
+<img src= "images/fi.jpg" width = "200">
+
+<img src= "http://localhost:8000/edu/images/fi.jpg" width="400" height="100">
+</div>
+<hr> 
+<span><a href="http://www.google.co.kr" target="_blank">[구글의 홈페이지] </a>
+<a href="http://www.w3.org/">[웹의 홈페이지]</a>
+<a href="http://www.w3schools.com/">[웹기술 학습페이지]</a>
+</span>
+<hr>   <!--  -->single side 태그 컨탠츠가 필요없다. 종료 태그가  필요없는 것은 이렇게 붙이면 된다. <hr/> 
+
+</body>
+
+
+</html>

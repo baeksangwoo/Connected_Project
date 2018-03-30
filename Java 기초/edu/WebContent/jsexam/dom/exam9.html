@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo" onclick="myFunction()">Click me to change my text color.</p>
+
+<script>
+function myFunction() {
+	 var dom=document.getElementById("demo");
+	    dom.style.color = "coral";
+	    dom.style.backgroundColor = "yellow";
+	    //객체를 두번 파싱하지 않아도 된다.
+	
+	
+	//document.getElementById("demo").style.color = "coral";
+    //document.getElementById("demo").style.backgroundColor = "yellow";
+    //객체를 두번 써서 수행 속도를 낮춘다.
+    
+   //원본 document.getElementById("demo").style.background-color = "yellow"; 
+}  //-는 javascript에서 안받아 주므로 -에서 뺴고 대문자를 써주면 된다.
+   // 	document.getElementById("demo").style.backgroundColor = "yellow"; -를 빼고 C대문자로 바꾼것이다.
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="util.js"></script>
+
+<style>
+	#two{
+		text-align: center;
+    	color: gray;
+		background-color: blue;
+	}
+	.box{
+		text-align: center;
+    	color: red;
+		background-color: yellow;
+	}
+</style>
+
+</head>
+<body>
+
+<hr>
+
+<h1 id="one" class="box"> 오늘은 목요일 입니다.</h1>
+
+<h1> 오늘은 목요일 입니다.</h1>
+
+<div> 오늘은 목요일 입니다.</div>
+
+<p id="two"> 오늘은 목요일 입니다.</p>
+
+<h3> 오늘은 목요일 입니다.</h3>
+
+<h3> 오늘은 목요일 입니다.</h3>
+
+
+<script>
+/* alert(document.getElementById("one"));
+alert(document.getElementById("two"));  //ID 값이 two인 것을 찾아내라 그 것은? 
+alert(document.getElementById("three")); */
+/* 
+alert(document.getElementsByTagName("h1")); //유사 객체를 출력하기
+alert(document.getElementsByTagName("div")); //유사 객체를 출력하기
+alert(document.getElementsByTagName("h2")); //유사 객체를 출력하기
+alert(document.getElementsByTagName("p")); //유사 객체를 출력하기 유사 배열 객체로 나타낸다.
+alert(document.getElementsByTagName("h3")); //유사 객체를 출력하기 */
+/* 
+alert(document.querySelector("#one"));  //heading Element
+alert(document.querySelector("#two"));  //paragraph Element
+alert(document.querySelector("#three")); //null */
+
+alert(document.querySelectorAll("h1"));
+alert(document.querySelectorAll("div"));
+alert(document.querySelectorAll("p"));
+alert(document.querySelectorAll("h3"));
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

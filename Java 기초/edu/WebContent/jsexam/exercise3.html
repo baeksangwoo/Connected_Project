@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="util.js"></script>
+<script>
+function calc () {
+	var result=0;
+	print("전달된 아규먼츠 갯수!:"+arguments.length,"h2");
+	for(var i=0; i<arguments.length; i++){
+		if(arguments.length==0)
+		{
+			result=0;	
+		}
+		if(isNaN(arguments[i]))
+		{
+			result="숫자만 입력해주세요";
+			break;
+		}
+		else
+		{
+			result=result+arguments[i];
+		}
+	}
+	return result;
+}
+print(calc(),"h3"); 
+print(calc(10,20,30),"h3");
+print(calc(10,"가나다",20),"h3");
+print(calc(1,2,3,4,5,6,7),"h3");
+</script>
+</body>
+</html>

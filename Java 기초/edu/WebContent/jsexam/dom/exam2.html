@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>동적인 웹페이지 - 1</h1>
+<hr>
+<button onclick="displayTime();">시간을 알려주라옹...</button>
+<button onclick="stopTime();">시간을 알려주라옹...</button>
+
+<output id="result"></output>
+<script>
+    var target = document.getElementById("result");
+  
+    var setId;
+	
+    function displayTime() {			
+			var d = new Date();
+			target.innerHTML = "<h1>"+d.toLocaleString()+"</h1>";
+			setId=window.setTimeout(displayTime, 1000);//1초에 한번씩 계속호출하라
+    }
+	function stopTime(){
+		 
+		window.clearTimeout(setId);
+	}
+	
+</script>
+
+</body>
+
+</html>
+
+
+	
+			<!-- //textContent에 담으면 html 태그는 개무시도니다.
+			//innerHTML에 넣으면 html 태그를 살린다.
+			
+			//타자 연습기 근대 i 쪽에서 inner html을 제한한다. 그래서? 표준이아니여서 부담이 되었다. ㅇ
+					//구석에 쳐박혀 있다. uphandchild 로 만들어서 해야하는 불편함이 있었다. 
+					//하지만 이걸 사용함으로 써 개발자ㅣ들이 편하게 개발이 가능하도록 만들었다.
+					//textContent 이 놈은 일반 텍스트로 다 표현하게 만드는 것이다. 
+					//textContent는 html을 싹 무시하므로 그냥 쓰는 것이 않좋다. 마조는 많이 쓴다. innerText는 이제 개무시한다.
+					//나도 모른다 그냥 무시하자
+			
+			//찾아온 DOM 객체에 대하여 컨텐트를 변경하는 방법 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

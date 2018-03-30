@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="util.js"></script>
+
+</head>
+<body>
+<h1>가변 아규먼트 타입 체크</h1>
+
+<hr>
+<button onclick="clickProcess();">????</button>
+<script>
+
+/* print(add(),"h2");
+print(add(10),"h3");
+print(add(10,20),"h4"); */
+function addAll () {
+	var result=0;
+	print("전달된 아규먼츠 갯수!: "+arguments.length,"h2");
+	for(var i=0; i<arguments.length; i++){
+		if(isNaN(arguments[i])){
+			result="숫자만 입력해주세요";
+
+			break;
+		}
+		result=result+arguments[i];	
+	}
+	return result;
+}
+print(addAll(),"h3"); 
+print(addAll(1,2),"h3");
+print(addAll(1,2,3,4,5,6,7),"h3");
+print(addAll(1,2,8,9,7,6,7,"가나다",8,4,8,98,49,9),"h3");
+
+</script>
+
+
+</body>
+</html>

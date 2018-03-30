@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	.box{
+		border : 1px solid blue;	
+		border-radius : 15px  15px  15px  15px;
+		height:50px;
+		width: 80px;
+	}
+	.content{
+		text-align: center;
+	}
+</style>
+
+<body>
+	<h3 align="center">구구단</h3>
+<div align="center">
+ <button id="t1" class="box">1단</button>
+ <button id="t2" class="box">2단</button>
+ <button id="t3" class="box">3단</button>
+ <button id="t4" class="box">4단</button>
+ <button id="t5" class="box">5단</button>
+ <button id="t6" class="box">6단</button>
+ <button id="t7" class="box">7단</button>
+ <button id="t8" class="box">8단</button>
+ <button id="t9" class="box">9단</button>
+</div>
+<div id="content" align="center">
+</div>
+<script>
+/* var link2 = document.getElementById("t2");
+link2.addEventListener("click", test3);
+ */
+var link1 = document.querySelector("#t1");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu1;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t2");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu2;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t3");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu3;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t4");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu4;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t5");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu5;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t6");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu6;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t7");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu7;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t8");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu8;  // 이놈이 실행하라 고전이다!
+
+var link1 = document.querySelector("#t9");	  //id 값이 이놈을 눌렀어
+link1.onclick = gugu9;  // 이놈이 실행하라 고전이다!
+
+
+
+function gugu1() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 1 * times; 
+			 text +=  1  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+	
+function gugu2() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 2 * times; 
+			 text +=  2  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+function gugu3() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 3 * times; 
+			 text +=  3  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+function gugu4() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 4 * times; 
+			 text +=  4  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+	
+function gugu5() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 5 * times; 
+			 text +=  5  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+function gugu6() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 6 * times; 
+			 text +=  6  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+function gugu7() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 7 * times; 
+			 text +=  7  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+	
+function gugu8() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 8 * times; 
+			 text +=  8  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+function gugu9() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = 9 * times; 
+			 text +=  9  +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+ </script>
+<!-- <a id="t1" href="http://www.w3schools.com/">HTML5 학습하기(고전)</a><hr>
+<a id="t2" href="http://www.w3schools.com/">HTML5 학습하기(표준)</a>
+function test2() {
+	alert("고전이벤트모델 버튼 클릭");	
+	return false;
+}
+function test3(e) {
+	alert("표준이벤트모델 버튼 클릭");
+	e.preventDefault();
+}
+var link1 = document.querySelector("#t1");
+var link2 = document.getElementById("t2");
+link1.onclick = test2;  // 고전
+var link2 = document.getElementById("t2");
+link2.addEventListener("click", test3);
+ -->
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+     /*    $(document).ready(function () {
+            $('h1').html(function (index, html) {
+                return '★' + html + '★';   // 결합연산자..
+            });
+        }); */
+        $(document).ready(function () {
+        	$('h1').click(function () {
+            	$(this).html(function (a,b) { // this 이벤트가 발생된 h1 태그 객체 a , b를 해도 a는 index b는 content 
+                	return '★' + a + '★';   // 결합연산자..
+            	});
+        	});
+        });
+        //off로 해제한다.
+        //)
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>
+
+
+

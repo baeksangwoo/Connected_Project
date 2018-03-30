@@ -1,0 +1,17 @@
+package day15;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class InetAddressTest {
+
+	public static void main(String[] args) throws UnknownHostException {
+		// TODO Auto-generated method stub
+		InetAddress me =InetAddress.getLocalHost();
+		System.out.println(me.getHostAddress());
+		InetAddress naver =InetAddress.getByName("www.naver.com");
+		System.out.println(naver.getHostAddress());
+		System.out.println(me);
+	}
+
+}

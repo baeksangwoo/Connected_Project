@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<h1>오늘의 날짜</h1>
+<script src="util.js"></script>
+<div >
+<script>
+
+function getTodayLabel() { 
+	var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+	var today = new Date().getDay(); 
+	var todayLabel = week[today]; 
+	if(todayLabel=='수요일')
+	{
+		return todayLabel.fontcolor("red");
+	}
+	else if(todayLabel=='일요일')
+	{
+		return todayLabel.fontcolor("yellow");
+	}
+	else if(todayLabel=='월요일')
+	{
+		return todayLabel.fontcolor("green");
+	}
+	else if(todayLabel=='화요일')
+	{
+		return todayLabel.fontcolor("gray");
+	}
+	else if(todayLabel=='목요일')
+	{
+		return todayLabel.fontcolor("white");
+	}
+	else if(todayLabel=='금요일')
+	{
+		return todayLabel.fontcolor("blue");
+	}
+	else if(todayLabel=='토요일')
+	{
+		return todayLabel.fontcolor("orange");
+	}
+	else
+	return todayLabel; 
+} 
+document.body.style.backgroundColor = "#66ccff";
+print("오늘은 "+getTodayLabel()+" 입니다","h1");
+
+</script>
+</div>
+</body>
+</html>

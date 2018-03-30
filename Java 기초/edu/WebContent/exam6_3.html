@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	.box{
+		border : 1px solid blue;	
+		border-radius : 15px  15px  15px  15px;
+		height:8%;
+		width: 8%;
+	}
+	.content{
+		text-align: center;
+	}
+</style>
+
+<body>
+	<h3 align="center">구구단</h3>
+<div align="center">
+ <button id="1" class="box">1단</button>
+ <button id="2" class="box">2단</button>
+ <button id="3" class="box">3단</button>
+ <button id="4" class="box">4단</button>
+ <button id="5" class="box">5단</button>
+ <button id="6" class="box">6단</button>
+ <button id="7" class="box">7단</button>
+ <button id="8" class="box">8단</button>
+ <button id="9" class="box">9단</button>
+</div>
+<div id="content" align="center">
+</div>
+<script>
+/* var link2 = document.getElementById("t2");
+link2.addEventListener("click", test3);
+ */
+  var link= document.getElementsByTagName("button");
+ for(var i=0;i<9;i++)
+	 {
+	 link[i].addEventListener("click", gugu);  // 이놈이 실행하라 고전이다!
+	 }
+ 
+function gugu() {
+	 var target = document.getElementById("content");
+		 var text = ""; 
+		 for ( var times = 1; times < 10; times++ ) { 
+			 var answer = parseInt(this.id) * times; 
+			 text +=  parseInt(this.id)   +  " x "  +  times  +  " = "  +  answer  +  "<br />"; 	
+			 target.innerHTML = "<h1>"+text+"</h1>";
+		 } 
+	}
+	
+ </script>
+
+
+</body>
+</html>
