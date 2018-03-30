@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="messageBean" class="sample1.MessageBeanImpl" scope="prototype">
+<!-- 프로토 타입으로 하면 객체를 요구할 때 마다 객체를 새로 생성한다.  -->
+	<constructor-arg>
+		<value>strawberry</value>
+	</constructor-arg>	
+	<property name="cost">
+		<value>3000</value>
+	</property>
+</bean>	
+</beans>
+
+
+
+
+
+

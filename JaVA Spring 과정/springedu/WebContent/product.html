@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	img{
+		
+		width:200px;
+		height:200px;
+	}
+	btn{
+		
+	}
+</style>
+
+<body>
+
+<h1>구매하고자 하는 상품을 선택하십시오.</h1>
+<hr>
+
+
+<img src="./images/banana.jpg" id="banana=1" onclick="Myfunction(id)"></img>
+<img src="./images/apple.gif" id="apple=1" onclick="Myfunction(id)"></img>
+<img src="./images/halabong.jpg" id="orange=1" onclick="Myfunction(id)"></img>
+
+<br>
+
+<input type="button" onclick="location.href='/springedu/buy.do';" value="장바구니 비우기" />
+
+<script>
+function Myfunction(num){    
+        location.href="/springedu/product.do?"+num;
+};
+</script>
+</body>
+</html>

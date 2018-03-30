@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="user"  class="anno01.User">
+	<property name="name" value="홍길동"/>
+	<property name="age"  value="32"/>
+	<property name="hobby" value="등산"/>
+</bean>
+<bean id="myProcess0"  class="anno01.UserShow"/>
+
+<bean id="myProcess1"  class="anno01.UserShow"  autowire="byName"/>
+<!--이름으로 넣어주어라 -->
+<!-- setter 메소드를 자동으로 호출하여 바인딩하는 것이다. -->
+<!-- UserShow클래스에 user라는 이름의 변수를 찾아서 bean id="user"와 연결 -->
+
+<bean id="myProcess2"  class="anno01.UserShow"  autowire="byType"/>
+<!-- setter 메소드를 자동으로 호출하여 바인딩하는 것이다. -->
+<!-- UserShow클래스에 타입이 User로 선언된 변수를 찾아서 bean class="anno11.User"와 연결 -->
+
+<bean id="myProcess3"  class="anno01.UserShow"  autowire="constructor"/>
+<!-- 컨스럭터 인젝션 -->
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

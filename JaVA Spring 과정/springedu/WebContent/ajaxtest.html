@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> JAVA SCRIPT 로 구현 하는 AJAX 프로그렘- Spring 요청</h1>
+<button onclick="get()">GET 요청</button>
+<button onclick="post()">POST 요청</button>
+<hr>
+<output id="result"></output>
+<script>
+	function get(){
+		var xhr= new XMLHttpRequest();
+		xhr.onload= function(event){
+			if(xhr.status==200){
+				var result=document.getElementById("result");
+				result.textContent=xhr.responseText;
+				
+			}
+		};
+		xhr.open('GET','/springedu/insert1.do?pageno=100',true);
+		xhr.send();
+		
+	}
+	function post(){
+		var xhr= new XMLHttpRequest();
+		xhr.onload= function(event){
+			if(xhr.status==200){
+				var result=document.getElementById("result");
+				result.textContent=xhr.responseText;
+				
+			}
+		};
+		xhr.open('POST','/springedu/insert1.do',true);
+		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		
+		xhr.send("pageno=200");
+		
+	}
+
+</script>
+</body>
+</html>
