@@ -9,4 +9,8 @@ st2<-na.omit()
 
 avg<-colMeans(st[.c('ko','en','ma')],na.rm=T)
 
-#NA 값을 모두 0으로 바꾸시
+#NA 값을 모두 0으로 바꾸시오 
+
+st$ko <-ifelse(is.na(st$ko),1,st$ko)
+st$en <-ifelse(is.na(st$en),1,st$en)
+st$ma <-ifelse(is.na(st$ma),1,st$ma)

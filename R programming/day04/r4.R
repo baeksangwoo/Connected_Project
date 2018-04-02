@@ -1,9 +1,15 @@
-st<-read.csv('csv_exam_csv',header= F)
+st<-read.csv('csv_exam.csv',header= F)
 
-colnames()
+st
+
+colnames(st)<-c('id','class','ma','en','si')
 
 na.omit(st[.c('id','class','ko')])
+
 st2<-na.omit()
+
+
+
 #국어 , 영어 수학 성적의 평균을 구하여 
 #vector를 만든다
 
