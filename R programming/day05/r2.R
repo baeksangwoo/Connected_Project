@@ -39,3 +39,10 @@ result4<-result3[order(resutl3$city,decreasing = T)]
 ggplot(data=df, aes(x=reorder(manufacturer,-meancty),y=meancty))+geom_col()
 
 suvcty
+
+
+#자동차 중에 어떤 class가 가장 많은지 알아보려한다. 자동차별 빈도를 표현한 막대그래프를 만드시오
+
+ggplot(data=mpg,aes(x=class))+geom_bar()
+
+# 전체 데이터에서 class만 바라보고 데이터를 가져와 bar형태로 그려주면 알아서 카운트 한다.
