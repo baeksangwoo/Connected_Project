@@ -17,8 +17,7 @@ useNIADic();
 #단어장에 있는 명사들을 끄집어 내기 위해서 설치  
 
 txt<-readLines('hiphop.txt');
-txt<-str_replace(txt,'\\w',' ');
-txt<-gsub('\\W',' ',txt);
+txt<-gsub('\\W','',txt);
 #txt<-gsub('[0-9]',' ',txt);
 #txt<-gsub('[a-z]',' ',txt);
 #txt<-gsub('[A-Z]',' ',txt);
