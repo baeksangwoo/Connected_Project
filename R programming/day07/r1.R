@@ -76,7 +76,7 @@ p=wordcloud(words=wf$vc, freq = wf$Freq, min.freq = 2,max.words = 200,
           scale = c(3,0.5),
           colors = pal);
 print(p);
-dev.off;
+dev.off();
   
 #최소 단어 2개
 
