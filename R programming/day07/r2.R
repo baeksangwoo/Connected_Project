@@ -92,8 +92,6 @@ vc<- unlist(txt)
 wc<- table(vc)
 
 wf <- as.data.frame(wc,stringsAsFactors =  F)
-
-
 wf<-filter(wf,nchar(wf$vc)>=2 & nchar(wf$vc) <=5 )
 wf <- head(wf[order(wf$Freq,decreasing = T),],30)
 

@@ -1,26 +1,36 @@
 #install.packages('RgoogleMaps') 
 library(RgoogleMaps)
+library(dplyr)
+
 mycenter=c(37.501001, 127.038787)
 mymap<-GetMap(
-    center = mycenter,
-    zoom=11,
-    maptype = 'road',
-    destfile = 'mymap.jpg'
+  center = mycenter,
+  zoom=11,
+  maptype = 'road',
+  destfile = 'wifi.jpg'
 )
 
-jpeg(filename = "mypoint.jpg",width=680, height=680, quality=100);
 
-mydata<- data.frame(
-                    a=c(1:5),
-                    lat=c(37.501401,37.501201,37.501101, 37.501601, 37.503001),
-                    lon=c(126.031787 , 127.032787, 127.138787, 127.038737, 127.018787)            );
+svd<-read.csv('seoul.csv', header = T)
+#데이터를 불러 올때 유니코드로 불러오거나 UTF-8로 불러온다 메모장을 이용
+data3<-rename(svd,
+              company=설치기관.회사.,
+              lat=설치위치.Y좌표.,
+              lon=설치위치.X좌표.
+              )
+#데이터를 알아볼수 있게 rename
+
+kt<-data3 %>% filter(company=='KT')
+skt<-data3 %>% filter(company=='SKT')
+
 
 p<-PlotOnStaticMap(mymap,
-                lat=mydata$lat,
-                lon = mydata$lon,
-                destfile = 'mymap_point.jpg',
-                cex=6,pch=10,col='red'
-                )
+                   lat=data3$lat,
+                   lon=data3$lon,
+                   destfile = 'wifi_point.jpg',
+                   cex=0.3,pch=10,col='red'
+)
 
 print(p);
 dev.off()
+
