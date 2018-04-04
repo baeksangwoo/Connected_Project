@@ -27,9 +27,11 @@ skt<-data3 %>% filter(company=='SKT')
 p<-PlotOnStaticMap(mymap,
                    lat=data3$lat,
                    lon=data3$lon,
-                   destfile = 'wifi_point.jpg',
-                   cex=0.3,pch=10,col='red'
-)
+                   destfile = "MyTile1.png", 
+                   cex=1.5,
+                   pch=20,
+                   col=c('red','blue','green')
+                   )
 
 print(p);
 dev.off()

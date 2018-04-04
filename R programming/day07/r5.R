@@ -1,6 +1,5 @@
 #데이터를 알아볼수 있게 rename
-wifi<-function(a)
-{  
+wifi<-function(a){  
   library(KoNLP)
   library(dplyr)
   library(stringr)
@@ -37,41 +36,55 @@ wifi<-function(a)
                 lat=설치위치.Y좌표.,
                 lon=설치위치.X좌표.
   )
-  
-  data3
+
+
   #데이터를 알아볼수 있게 rename
   
   kt<-data3 %>% filter(company=='KT')
   skt<-data3 %>% filter(company=='SKT')
   lg<-data3 %>% filter(company=='LGU+')
-  
+
+ 
   if(a==1){
+    jpeg(filename = "ktwifi.jpg", width = 680, height = 680, quality =100);
     p<-PlotOnStaticMap(ktmap,
                        lat=kt$lat,
                        lon=kt$lon,
-                       destfile = 'ktpoint.jpg',
-                        cex=0.1,pch=10,col='red')
+                       destfile = 'ktwifi.jpg',
+                       cex=1.5,
+                       pch=20,
+                       col=c('blue')
+                       )
     print(p);
     dev.off();
     }
-  ifelse(a==2,p<-PlotOnStaticMap(sktmap,
-                            lat=data3$lat,
-                            lon=data3$lon,
-                            destfile = 'sktpoint.jpg',
-                            cex=0.1,pch=10,col='blue'
-         ),
-         p<-PlotOnStaticMap(lgmap,
-                            lat=data3$lat,
-                            lon=data3$lon,
-                            destfile ='lgpoint.jpg',
-                            cex=0.1,pch=10,col='green'
-         ))
-  {
+  if(a==2){
+    jpeg(filename = "sktwifi.jpg", width = 680, height = 680, quality =100);
+    p<-PlotOnStaticMap(ktmap,
+                       lat=skt$lat,
+                       lon=skt$lon,
+                       destfile = 'sktwifi.jpg',
+                       cex=1.5,
+                       pch=20,
+                       col=c('green')
+    )
+    print(p);
+    dev.off();
+  }
+  if(a==3){
+    jpeg(filename = "lgwifi.jpg", width = 680, height = 680, quality =100);
+    p<-PlotOnStaticMap(ktmap,
+                       lat=lg$lat,
+                       lon=lg$lon,
+                       destfile = 'lgwifi.jpg',
+                       cex=1.5,
+                       pch=20,
+                       col=c('red')
+    )
     print(p);
     dev.off();
   }
   
-
   
 }
 
