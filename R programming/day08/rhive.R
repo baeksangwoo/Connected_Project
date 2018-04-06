@@ -53,13 +53,10 @@ new_air_06 <-air_06[,c(-1)]
 new_air_07 <-air_07[,c(-1)]
 new_air_08 <-air_08[,c(-1)]
 
-colnames(new_air_06)<-c('Month','TOTAL');
-
-new_air_06
 
 #데이터 분석 화면을 구현
 
-ggplot(data=new_air_06, aes(x=new_air_06$month, y=new_air_06$TOTAL,fill="2006"))+
+ggplot(data=new_air_06, aes(x=new_air_06$month, y=new_air_06$'_c2',fill="2006"))+
   geom_line()+geom_point()+ 
   geom_line(data=new_air_07, aes(x=new_air_07$month, y=new_air_07$'_c2'),colour="red")+ geom_point(data=new_air_07, aes(x=new_air_07$month, y=new_air_07$'_c2'),colour="red")+geom_line(data=new_air_08, aes(x=new_air_08$month, y=new_air_08$'_c2'),colour="blue")+ geom_point(data=new_air_08, aes(x=new_air_08$month, y=new_air_08$'_c2'),colour="blue")
 
