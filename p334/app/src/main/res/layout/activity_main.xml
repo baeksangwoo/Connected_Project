@@ -17,13 +17,6 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="clickBt"
+        android:onClick="ClickBt"
         android:text="Button" />
-
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_blue_dark"
-        android:orientation="vertical"></LinearLayout>
 </LinearLayout>
