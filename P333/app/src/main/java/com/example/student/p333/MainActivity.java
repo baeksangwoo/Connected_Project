@@ -7,14 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
+    Intent intent =null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
     public void Clickb(View v){
-        Intent intent =null;
+
         switch (v.getId()){
             case R.id.button:
                 intent =new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.naver.com"));
