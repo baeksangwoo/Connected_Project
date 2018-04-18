@@ -178,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
                 flag=true;
             }
         });
+        dialog =alBuilder.create();
+        dialog.show();
     }
 
     @Override
