@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+
+    <!--드릴 다운-->
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    
+    <!--네이버 API-->
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=MKE8aDa7MfiMJh9LaVKk&submodules=geocoder"></script>
+<style>
+.better-color-0 {
+	fill: #7cb5ec;
+	stroke: #7cb5ec;
+}
+.better-axis.better-color-0 .better-axis-line {
+	stroke: #7cb5ec;
+}
+
+.better-color-1 {
+	fill: #f34a4a;
+	stroke: #f34a4a;
+}
+.better-axis.better-color-1 .better-axis-line {
+	stroke: #f34a4a;
+}
+</style>
+   <style>
+.sidenav {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(20, 17, 17, 0.945);
+    bottom: 0;
+
+    text-align: center;
+    overflow-x: hidden;
+    padding-top: 8px;
+}
+
+.sidenav a {
+    padding: 10px 13px 13px 4px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #6699ff;
+    display: inline;
+}
+
+.sidenav a:hover {
+    color: #c0ec6d;
+}
+
+
+#idbody{
+  text-align:center;
+}
+#idbody:before{
+  content:'';
+  display:inline-block;
+  vertical-align:Top;
+}
+
+
+.btns{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:120px;
+  width:94%;
+  font-size:1.6em;
+  margin-bottom: 8px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.btns:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.btns:before,.btns:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.btns:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btns:hover:before,.btns:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+</style>
+</head>
+  <body class="main">
+
+        <script>
+                var availableTags = [
+                '（주）오스테오닉','(주)엔지켐생명과학','카페24주식회사',
+            '（주）링크제니시스',
+            '주식회사배럴즈',
+            '주식회사배럴',
+            '씨앤지하이테크(주)',
+            '쿠쿠홈시스주식회사',
+            '주식회사에스엠코어/(일용)SK케미칼수지자동화공사',
+            '(주)라이프사이언스테크놀로지',
+            '주식회사휴럼',
+            '동양피스톤(주)',
+            '(주)씨티케이코스메틱스',
+            '(주)케이씨텍',
+            '스튜디오드래곤주식회사',
+            '미디어젠(주)',
+            '상신전자(주)',
+            '(주)에스엔피월드',
+            '앱클론(주)',
+            '(주)두원석재',
+            '(주)시그넷이브이',
+            '주식회사내일을여는사람들-모트렉스',
+            '지니언스(주)',
+            '（주）디앤씨미디어',
+            '(주)셀트리온헬스케어',
+            '(주)루켄테크놀러지스',
+            '제일약품주식회사',
+            '주식회사브이원텍',
+            '주식회사브이원텍수원공장',
+            '주식회사이녹스첨단소재',
+            '주식회사알로이스',
+            '주식회사주노콜렉션',
+            '(주)메디안디노스틱',
+            '(주)보라티알',
+            '주식회사삼양옵틱스',
+            '주식회사필옵틱스',
+            '(주)경동도시가스',
+            '넷마블블루주식회사',
+            '아이엔지생명보험(주)',
+            '현대일렉트릭(주)',
+            '주식회사앙츠(Antz.Co.,Ltd)',
+            '하나머티리얼즈(주)',
+            '주식회사엠앤씨생명과학',
+            '(주)플렉스파워에이더블유에스',
+            '(주)크라운제과',
+            '(주)에스디생명공학',
+            '신신제약(주)',
+            '에프엔에스테크(주)',
+            '모바일어플라이언스(주)',
+            '서플러스글로벌(주)',
+            '전우정밀(주)',
+            '(주)퓨전데이타',
+            '주식회사오파스넷',
+            '주식회사마이크로프랜드',
+            '(주)바이오프로테크',
+            '애니젠(주)',
+            '(주)유니온커뮤니티',
+            '신라젠(주)',
+            '핸즈코퍼레이션주식회사',
+            '(주)뉴파워프라즈마오산사업장',
+            '(주)엘앤케이바이오메드',
+            '주식회사시큐센',
+            '나무기술주식회사',
+            '(주)핸디소프트',
+            '두산밥캣코리아주식회사',
+            '비플라이소프트(주)',
+            '주식회사수젠텍',
+            '(주)수젠텍',
+            '(주)세화피앤씨',
+            '주식회사에이치엘사이언스',
+            '주식회사위드윈-코스메카코리아현장',
+            '코스메카코리아(주)',
+            '(주)인텔리안테크놀로지스',
+            '(주)앤디포스',
+            '(주)수산아이앤티',
+            '(주)유쎌',
+            '（주）유니테크노아산지점',
+            '엠에프엠코리아(주)',
+            '자이글주식회사',
+            '일동제약(주)',
+            '(주)피엔에이치테크',
+            '샘표식품주식회사',
+            '(주)에코마케팅',
+            '팍스넷(주)',
+            '(주)엔지스테크널러지',
+            '우리손에프앤지농업회사법인(주)강원엘피씨',
+            '주식회사휴벡셀',
+            '옵토팩주식회사',
+            '(주)지노믹트리',
+            '제노텍(주)',
+            '주식회사대유위니아서비스',
+            '(주)시냅스엠',
+            '한국자산신탁(주)',
+            '한국토지신탁(주)',
+            '(주)바이오리더스',
+            '(주)에스엘에스바이오',
+            '(주)씨앤에스링크',
+            '해성디에스주식회사',
+            '주식회사녹십자랩셀',
+            '줌인터넷주식회사',
+            '(주)휴온스메디케어',
+            '주식회사용평리조트',
+            '해태제과식품(주)청주공장',
+            '주식회사레이언스',
+            '동양파일（주）서울사무소',
+            '코리아오토글라스(주)',
+            '주식회사하우동천',
+            '주식회사잇츠한불',
+            '와이아이케이주식회사',
+            '와이아이케이(주)',
+            '한국맥널티（주）',
+            '주식회사강스템바이오텍',
+            '(주)씨트리',
+            '주식회사에이원알폼',
+            '인산가(주)서울지점',
+            '메가엠디주식회사',
+            '(주)한국비엔씨',
+            '(주)파크시스템스',
+            '(주)뉴트리바이오텍',
+            '에이치엔에스하이텍(주)',
+            '(주)미애부',
+            '(주)세진중공업',
+            '(주)지성이씨에스',
+            '하이즈항공(주)',
+            '주식회사캔서롭',
+            '주식회사매직마이크로',
+            '네오오토예산공장제3공장',
+            '(주)네오오토예산공장',
+            '인카금융서비스(주)',
+            '주식회사금호에이치티',
+            '주식회사더블유게임즈',
+            '(주)젠큐릭스',
+            '주식회사엑시콘천안지점',
+            '(주)티씨엠생명과학',
+            '(주)메디쎄이',
+            '에치디프로(주)',
+            '패션플랫폼주식회사',
+            '주식회사넷게임즈（NATGAMESCO．，LTD）',
+            '제너셈(주)',
+            '주식회사타이거일렉제2공장',
+            '동일제강(주)',
+            '(주)에이티젠',
+            '(주)인포마크',
+            '현대코퍼레이션홀딩스주식회사',
+            '(주)토니모리',
+            '미래에셋생명보험(주)',
+            '주식회사동운아나텍',
+            '주식회사민앤지',
+            '(주)경보제약',
+            '바이오코아(주)',
+            '（주）유투바이오',
+            '코아스템（주）',
+            '(주)세미콘라이트',
+            '(주)미코나노바이오시스',
+            '주식회사바이오로그디바이스',
+            '(주)서전기전',
+            '(주)오킨스전자',
+            '（주）지란지교시큐리티',
+            '지란지교시큐리티',
+            '소프트캠프(주)',
+            '(주)에듀케이션파트너',
+            '주식회사녹십자엠에스',
+            '세종머티리얼즈주식회사',
+            '주식회사랩지노믹스',
+            '(주)에이디테크놀로지',
+            '투윈하이텍주식회사',
+            '주식회사윈하이텍',
+            '(주)아진엑스텍',
+            '콜마비앤에이치(주)',
+            '（주）화인베스틸',
+            '에이비온주식회사',
+            '(주)트루윈',
+            '(주)데이터스트림즈',
+            '(주)우성아이비',
+            '(주)디지캡',
+            '캐스텍코리아(주)',
+            '(주)케이사인',
+            '(주)오이솔루션',
+            '한국정보인증(주)',
+            '(주)유비온',
+            '(주)솔루에타',
+            '이지웰페어(주)',
+            '위월드(주)',
+            '(주)씨이랩',
+            '(주)기가레인',
+            '(주)인트로메딕',
+            '(주)한중엔시에스',
+            '(주)알티캐스트',
+            '엔브이에이치코리아(주)',
+            '주식회사큐브엔터테인먼트',
+            '(주)라이온켐텍',
+            '램테크놀러지(주)',
+            '(주)미동앤씨네마',
+            '해성옵틱스(주)수원공장',
+            '해성옵틱스(주)',
+            '(주)내츄럴엔도텍',
+            '수프로(주)',
+            '(주)테스나',
+            '(주)파수닷컴',
+            '(주)지엔씨에너지',
+            '주식회사한진칼',
+            'NHN엔터테인먼트서비스',
+            '파이오링크(주)',
+            '주식회사JB금융지주',
+            '나스미디어(주)',
+            '비나텍(주)',
+            '(주)에프앤가이드',
+            '(주)이엔드디',
+            '(주)피엠디아카데미',
+            '(주)레고켐바이오사이언스서울지점',
+            '(주)인터불스',
+            '주식회사윈팩',
+            '(주)코렌텍서울사업소',
+            '(주)제로투세븐',
+            '우리이앤엘(주)',
+            '디젠스(주)',
+            '지엠비코리아주식회사',
+            '(주)맥스로텍',
+            '동일고무벨트（주）',
+            '애경유화(주)',
+            'AJ렌터카(주)',
+            '주식회사엠씨넥스',
+            '(주)네이블커뮤니케이션즈',
+            '(주)디지탈옵틱',
+            '비아트론(주)',
+            '빛샘전자(주)',
+            '(주)사람인에이치알',
+            '제룡산업（주）',
+            '(주)디엔에이링크',
+            '(주)GS리테일',
+            '(주)나이스디앤비',
+            '서암기계공업(주)',
+            '(주)씨유메디칼시스템',
+            '(주)사파이어테크놀로지',
+            '넥스트리밍주식회사',
+            '(주)비덴트',
+            '(주)쎄미시스코',
+            '주식회사에이티세미콘',
+            '(주)테크윙',
+            '주식회사에스엠코어',
+            '주식회사테라세미콘',
+            '(주)피앤이솔루션',
+            '(주)에이블씨엔씨',
+            '(주)데일리블록체인',
+            '(주)삼원강재',
+            '상아프론테크(주)',
+            '신세계인터내셔날(주)',
+            '(주)나이벡',
+            '옵티시스주식회사',
+            '대양전기공업(주)',
+            '한국항공우주산업(주)새마을금고',
+            '롯데하이마트(주)',
+            '（주)서연탑메탈',
+            '한세엠케이주식회사',
+            '(주)DGB금융지주',
+            '(주)케이티스카이라이프',
+            '(주)세아특수강',
+            '(주)세아특수강충주2공장',
+            '（주）메리츠금융지주',
+            '일진머티리얼즈주식회사',
+            '나노신소재(주)',
+            '(주)케이아이엔엑스',
+            '제이엔케이히터(주)[일용]대한유화ONEProject(울산)중기계/배관설치',
+            '제이엔케이히터(주)',
+            '주식회사블루콤',
+            '(주)인트론바이오테크놀로지',
+            '（주）다나와컴퓨터',
+            '알서포트주식회사',
+            '(주)인텍플러스',
+            '두산엔진주식회사',
+            '(주)현대에이치씨엔부산방송',
+            '주식회사현대에이치씨엔부산방송',
+            '주식회사현대에이치씨엔금호방송',
+            '대정화금(주)',
+            '제이스테판주식회사',
+            '시그네틱스（주）광명사업부',
+            '시그네틱스(주)',
+            '한국전자인증(주)',
+            '주식회사선데이토즈',
+            '삼본정밀전자(주)',
+            '주식회사아나패스',
+            '(주)KNN',
+            '동양네트웍스주식회사',
+            '동양네트웍스(주)',
+            '아이텍반도체(주)',
+            '인화정공(주)',
+            '현대홈쇼핑(주)',
+            '(주)하이비젼시스템',
+            '(주)화신정공',
+            '코리아에프티(주)',
+            '(주)엠에스오토텍',
+            '(주)이글루시큐리티',
+            '(주)아이마켓코리아',
+            '인터로조(주)',
+            '크루셜텍(주)',
+            '(주)알톤스포츠',
+            '웅진에너지주식회사(구미지점)',
+            '(주)유비벨록스모바일',
+            '(주)지와이커머스',
+            '(주)오르비텍',
+            '이연제약(주)',
+            '한솔시큐어(주)',
+            '(주)실리콘웍스',
+            '(주)한국화장품제조음성공장',
+            '(주)인피니트헬스케어',
+            '(주)모바일리더',
+            '(주)서진오토모티브',
+            '（주）한라홀딩스',
+            '(주)지앤비시스템신세계푸드이천공장사업소',
+            '（주）지앤비시스템신세계푸드오산공장사업소',
+            '주식회사삼기오토모티브(서산지점)',
+            '주식회사삼기오토모티브',
+            '조선선재（주）',
+            '(주)알비케이이엠디',
+            '(주)인포바인',
+            '(주)락앤락',
+            '영흥철강주식회사',
+            '우리들휴브레인(주)',
+            '멜파스(주)',
+            '이원컴포텍(주)',
+            '주식회사웰크론강원',
+            '주식회사동방선기',
+            '주식회사진매트릭스바이오',
+            '진매트릭스(주)',
+            '황금에스티(주)',
+            '(주)비츠로셀',
+            '한스바이오메드(주)',
+            '동양생명보험(주)',
+            '유니온머티리얼(주)포항공장',
+            '(주)케이엔더블유',
+            '(주)형지엘리트',
+            '아지노모도제넥신주식회사',
+            '(주)에스앤더블류',
+            '키움증권(주)',
+            '아주캐피탈(주)',
+            '(주)한국정밀기계',
+            'STX중공업주식회사',
+            '한솔신텍주식회사',
+            '우림기계(주）',
+            '(주)티플랙스',
+            '(주)뷰웍스',
+            '코오롱생명과학(주)김천제1공장',
+            '엔시트론주식회사',
+            '한세실업주식회사',
+            '주식회사파인테크닉스-괴산지점',
+            '미원홀딩스(주)',
+            '이수앱지스(주)',
+            '(주)대성파인텍',
+            '(주)아이컴포넌트-세교공장',
+            '아이컴포넌트',
+            '에이치엘비생명과학(주)',
+            '주식회사SIMPACMetal당진공장',
+            '주식회사SIMPACMetal',
+            '(주)KB금융지주',
+            '(주)세운메디칼',
+            '마이크로컨텍솔루션(주)',
+            '삼강엠앤티(주)밀양제1공장',
+            '(주)웰크론한텍',
+            '(주)코리아에스이',
+            '주식회사슈프리마에이치큐',
+            '명문제약(주)',
+            '(주)이스트소프트',
+            '(주)청담러닝',
+            '(주)월덱스',
+            '(주)쎄트렉아이',
+            '(주)브리지텍',
+            '(주)조이시티',
+            '우진비앤지(주)',
+            '(주)엘디티',
+            '(주)메타바이오메드',
+            '효성오앤비(주)',
+            '(주)네패스신소재',
+            '아시아나항공(주)',
+            '(주)텔레필드',
+            '(주)에스코넥',
+            '(주)서원인텍구미1사업부',
+            '(주)서원인텍',
+            '(주)대창솔루션',
+            '(주)아이에스이커머스',
+            '(주)알에프세미',
+            '기신정기(주)',
+            '다믈멀티미디어(주)',
+            '미래나노텍글로벌주식회사',
+            '(주)바이오톡스텍',
+            '팬오션주식회사',
+            '연이정보통신(주)',
+            '옴니시스템(주)목포지점',
+            '옴니시스템(주)',
+            '(주)웨이브일렉트로닉스',
+            '주식회사빅솔론',
+            '(주)네오디안테크놀로지',
+            '(주)게임빌컴투스플랫폼',
+            '삼성카드고객서비스주식회사',
+            '(주)넥스트칩',
+            '(주)엔텔스',
+            '(주)웅진씽크빅',
+            '동국제약(주)',
+            '한라IMS(주)',
+            '(주)에프알텍',
+            '（주）코닉글로리',
+            '이베스트투자증권',
+            '오스템임플란트(주)',
+            '동아엘텍(주)',
+            '(주)휴온스글로벌',
+            '주식회사유니테스트',
+            '(주)큐에스아이',
+            '코스맥스비티아이(주)',
+            '(주)고려반도체시스템',
+            '인천도시가스(주)',
+            '주식회사성창오토텍(아산영인사업장)',
+            '(주)넥스턴',
+            '주식회사광진윈텍',
+            '(주)한컴MDS',
+            '현대EP(주)',
+            '(주)루멘스',
+            '세원셀론텍(주)',
+            '한국전자금융(주)',
+            '주식회사쇼박스',
+            '팬엔터테인먼트(주)',
+            '인포뱅크(주)',
+            '(주)동우팜투테이블',
+            '롯데관광개발(주)',
+            '(주)정산애강',
+            '（주）셀트리온제약진천공장',
+            '주식회사에너토크',
+            '(주)제우스닷',
+            '(주)제우스이천',
+            '농업회사법인제우스에프앤엘주식회사',
+            '주식회사제우스네트웍스',
+            '한일네트웍스주식회사',
+            '뉴프렉스(주)',
+            '주식회사글로벌유진테크',
+            '유진테크（주）',
+            '주식회사크리스탈컬렉션',
+            '(주)크리스탈콘솔리데이션',
+            '바이로메드(주)',
+            '주식회사대양-(주)엔바이오니아',
+            '엔바이오니아(주)',
+            '주식회사디자인콘',
+            '(주)인콘/일용/SW융합기술지원센터신축공사(통신)',
+            '（주）차바이오텍',
+            '현대글로비스(주)',
+            '대봉엘에스(주)',
+            '(주)와이엔텍명성-(상용)울산복산아이파트약전공사',
+            '(주)와이엔텍명성/상용/김포풍무2차푸르지오통신설비공사',
+            '(주)와이엔텍명성-(상용)천안레이크타운2차푸르지오현장',
+            '케이엠이주식회사(KMECo.,Ltd.)',
+            '（주）파트너스케이엠',
+            '(주)티비에이치글로벌',
+            '재단법인천주교예수성심전교수도회유지재단',
+            '(주)하나금융지주',
+            '(주)한국코퍼레이션',
+            '（주）제일연마부산직매소',
+            '(주)제일연마남부영업소',
+            '(주)모다이노칩원주점',
+            '(주)모다이노칩오산점',
+            '(주)비에이치아이',
+            '(주)비에이치아이앤티',
+            '(주)현대리바트천안',
+            '루미마이크로(주)',
+            '（주）자연과환경',
+            '자연과환경주식회사',
+            '대상홀딩스주식회사',
+            '주식회사아리온트레이딩',
+            '주식회사드림코아스',
+            '메디포스트（주）구로지점',
+            '메디포스트(주)',
+            '（주）모두투어에이치앤디',
+            '(주)모두투어자기관리부동산투자회사',
+            '(주)이앤아이월드',
+            '(주)이월드투어',
+            '엘티이월드주식회사',
+            '동양고속훼리(주)',
+            '(주)순성이엔씨-(상용)아산시동양고속터미널신축공사중전기공사',
+            '(주)순성이엔씨-(일용)아산시동양고속터미널신축공사중전기공사',
+            '한미반도체(주)',
+            '가온미디어(주)',
+            '주식회사쏠리드벤투스',
+            '쏠리드주식회사',
+            '（주）쏠리드링크',
+            '동일산업개발(주)',
+            '(주)옵트론텍',
+            '화련젬백스주식회사',
+            '젬백스디바이스주식회사',
+            '(주)플랜티넷',
+            '(주)에스제이케이글로벌',
+            '（주）에스제이케이',
+            '주식회사세명에스제이케이',
+            '삼호개발（주）-서부간선지하도로민자투자사업건설현장(일용)',
+            '삼호개발(주)806사업시설공사중시설1토목공사(일용)',
+            '（주）삼호개발',
+            '삼호개발(주)-(일용)시화동서진입도로2공구',
+            '삼호개발（주）-포천용정일반산업단지조성공사(일용직)',
+            '삼호개발（주）-일용-서해선(홍성-송산)복선전철제2공구노반시설기타공사(제1차)',
+            '(주)금호타이어영등포대리점',
+            '금호타이어청주판매(주)'
+                                    ];
+                </script>
+            
+                <form name="form1" method="GET" action="http://qortkdn123.dothome.co.kr">
+                  <input type="text" id="searchbox" name="company">
+                  <input type="submit" id="sumit" value="검색">
+                </form>
+            
+                <script>
+                $(document).ready(function() {
+                    $("#searchbox").autocomplete(availableTags,{ 
+                        matchContains: true,
+                        selectFirst: false
+                    });
+                });
+                </script>
+            
+    <!-- Navigation -->
+        <div class="sidenav" >
+        <a class="nav-link js-scroll-trigger" href="#heads"><img src="/images/homs.png" height="42" width="42" alt="" onclick="clickBtn();" border="0" /></a>
+        <a class="nav-link js-scroll-trigger" href="#about"><img src="/images/charts.png" height="42" width="42" alt="" onclick="clickBtn();" border="0" /></a>
+        <a class="nav-link js-scroll-trigger" href="#contact"><img src="/images/value.png"  height="42" width="42"alt="" onclick="clickBtn();" border="0" /></a>
+        <a class="nav-link js-scroll-trigger" href="#map"><img src="/images/map.png" height="42" width="42" alt="" onclick="clickBtn();" border="0" /></a>
+        <a class="nav-link js-scroll-trigger" href="#rcmd"><img src="/images/menu.png" alt="" height="42" width="42" onclick="clickBtn();" border="0" /></a>
+      </div>
+
+    <header class="bg-primary text-white" id="heads">
+          
+
+        <div class="container text-center">
+        <h1 id="company_name" style="color: antiquewhite"></h1>
+        <script language="JavaScript"> 
+          var today = new Date( ) 
+          var week = new Array('일', '월', '화', '수', '목', '금', '토');
+          var timese=today.getHours();
+          
+          if(timese>12)
+          {
+              timese-=12;
+          }
+          document.write(today.getMonth( )+1 , "월 " , today.getDate( ) , "일 ", week[today.getDay()] , "요일 ",timese, "시 ",today.getMinutes(),"분 ",  '<br />');
+          </script> <br/>
+             <p>직군: <strong id="sort"></strong></p>
+             <p>코멘트: <strong id="comment"></strong></p>
+       
+      </div>
+    </header>
+
+
+    <script>
+        <?php
+        $cpn = $_GET['company'];
+        $db_server = mysql_connect("localhost","qortkdn123","12-76046779dn"); 
+        if(!$db_server) die ("Unable to connect to MySQL :" . mysql_error());
+        mysql_select_db("qortkdn123") or die("Unable to select Database : " . mysql_error());
+        //한글 깨짐 문제 해결위한 추가라인
+        mysql_query("set session character_set_connection=utf8;");
+        mysql_query("set session character_set_results=utf8;");
+        mysql_query("set session character_set_client=utf8;");
+        //쿼리 select Cc_name, (sum(Cc_out/Cc_total*100))/count(*) AS ca
+        
+        $query = "select Cc_name ,ROUND((sum(Cc_out/Cc_total*100))/count(*),1) AS ca FROM Company_check where Cc_name like '%$cpn%' group by Cc_name"; 
+        $result = mysql_query($query); 
+         if(!$result) die ("Database access failed  : "  . mysql_error());
+      
+        $cc_rates=array();
+        $cc_whats=array();
+        for($i=0;$row=mysql_fetch_array($result);$i++){ 
+            $cc_rates[$i]=$row[ca];
+            $cc_whats[$i]=$row[Cc_what];
+        }
+        if($cc_rates[0]<=3.5)
+         {
+            $pmsg='퇴사율이 낮은 회사입니다.';
+         }
+        else{
+            $pmsg='퇴사율이 높은 기업입니다.';    
+        }
+
+        mysql_free_result($result);
+        mysql_close($db_server);
+         ?>
+
+    </script>
+
+    <section id="about">
+      <div id="containers"  style="width: 100%;">
+
+      </div>
+    </section>
+    <script>
+        <?php
+        $cpn = $_GET['company'];
+        $db_server = mysql_connect("localhost","qortkdn123","12-76046779dn"); 
+        if(!$db_server) die ("Unable to connect to MySQL :" . mysql_error());
+        mysql_select_db("qortkdn123") or die("Unable to select Database : " . mysql_error());
+        //한글 깨짐 문제 해결위한 추가라인
+        mysql_query("set session character_set_connection=utf8;");
+        mysql_query("set session character_set_results=utf8;");
+        mysql_query("set session character_set_client=utf8;");
+        //쿼리 select Cc_name, (sum(Cc_out/Cc_total*100))/count(*) AS ca
+        $querys = "select Cc_name, (sum(Cc_out/Cc_total*100))/count(*) AS CS from Company_check where Cc_what = (select Cc_what from Company_check where Cc_name LIKE '%$cpn%' LIMIT 1 ) group by Cc_name";
+        $results = mysql_query($querys); 
+         if(!$results) die ("Database access failed  : "  . mysql_error());
+        $co_name=array();
+        $co_avg=array();
+
+        for($i=0;$row=mysql_fetch_array($results);$i++){ 
+            $co_name[$i]=$row[Cc_name];
+            $co_avg[$i]=$row[CS];
+        }
+
+        mysql_free_result($results);
+        mysql_close($db_server);
+        ?>
+   </script>
+
+    <section id="contact">
+      <div class="container">
+        <div id="container1" style="width:100%; height: 400px;">
+        </div>
+      </div>
+    </section>
+
+    <section id="map">
+        <div class="container">
+          <div id="map" style="width:100%; height: 400px;">
+          </div>
+        </div>
+      </section>
+
+    <section id="rcmd">
+        <div style="height: 400px" id="idbody">
+            <h3>추천 기업</h3>
+            <button class="btns" id="req1"  onclick="button0_click();">동종 기업 데이타가 없습니다.</button> 
+            <button class="btns" id="req2"  onclick="button1_click();">동종 기업 데이타가 없습니다.</button> 
+            <button class="btns" id="req3"  onclick="button2_click();">동종 기업 데이타가 없습니다.</button> 
+            <button class="btns" id="req4"  onclick="button3_click();">동종 기업 데이타가 없습니다.</button> 
+            <button class="btns" id="req5"  onclick="button4_click();">동종 기업 데이타가 없습니다.</button> 
+        </div>
+      </section>
+
+    <script>
+      <?php
+
+          $cpn = $_GET['company'];
+          $db_server = mysql_connect("localhost","qortkdn123","12-76046779dn"); 
+          if(!$db_server) die ("Unable to connect to MySQL :" . mysql_error());
+          mysql_select_db("qortkdn123") or die("Unable to select Database : " . mysql_error());
+          //한글 깨짐 문제 해결위한 추가라인
+          mysql_query("set session character_set_connection=utf8;");
+          mysql_query("set session character_set_results=utf8;");
+          mysql_query("set session character_set_client=utf8;");
+          $word=company;
+          //쿼리
+      
+          $query = "SELECT DISTINCT `Cc_data`, Cc_total, Cc_out, Cc_in,Cc_name,Cc_addr,Cc_what FROM Company_check WHERE Cc_name LIKE'%$cpn%' ORDER BY `Cc_data`"; //Abcs는 테이블명 
+           $result = mysql_query($query); 
+           if(!$result ) die ("Database access failed  : "  . mysql_error());
+           $cur = array(); 
+           $out = array(); 
+           $ins = array();
+           $cname=array();
+           $csort=array();
+           $addr=array();
+           $dates=array();
+            for($i=0;$row=mysql_fetch_array($result);$i++){ 
+         
+           $cname[$i]=$row[Cc_name];
+           $cur[$i]=$row[Cc_total]; 
+           $out[$i]=$row[Cc_out];
+           $ins[$i]=$row[Cc_in];
+           $csort[$i]=$row[Cc_what];
+           $addr[$i]=$row[Cc_addr];
+           $dates[$i]=$row[Cc_data];
+           
+        }
+        $arraysums_out=array_sum($out);
+        $arraysums_ins=array_sum($ins);
+    
+          mysql_free_result($result);
+          mysql_close($db_server);
+      ?>
+                                    Math.easeOutBounce = function (pos) {
+                                      if ((pos) < (1 / 2.75)) {
+                                          return (7.5625 * pos * pos);
+                                      }
+                                      if (pos < (2 / 2.75)) {
+                                          return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
+                                      }
+                                      if (pos < (2.5 / 2.75)) {
+                                          return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
+                                      }
+                                      return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
+                                  };
+                                 
+                                Highcharts.setOptions({
+                                colors: ['#2693ff', '#26ff5c', '#ff0000', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+                                });
+
+                                  Highcharts.chart('containers', {
+                                      credits: {
+                                          enabled: false
+                                      },
+                                      chart: {
+                                                  type: 'line'
+                                              },
+                                          title: {
+                                              text: '회사 고용 현황'
+                                          },
+                                          xAxis: {
+                                              className: 'highcharts-colors-0',
+                                              categories: [<?php echo join($dates, ',') ?>]
+                                          },
+                                          yAxis: {
+                                              className: 'highcharts-colors-1',
+                                              type: 'logarithmic',
+                                              minorTickInterval: '0.61'
+
+                                          }, plotOptions: {
+                                              series: {
+                                                  animation: {
+                                                      duration: 3000,
+                                                      easing: 'easeOutBounce'
+                                                  }
+                                              }
+                                          },
+                                          labels: {
+                                              items: [{
+                                                  html: '',
+                                                  style: {
+                                                      left: '50px',
+                                                      top: '58px',
+                                                      color: (Highcharts.theme && Highcharts.theme.textColor) || 'green'
+                                                  }
+                                              }]
+                                          },
+                                          series: [{
+                                              type: 'column',
+                                              name: '현재 사원 수',
+                                              data: [<?php echo join($cur, ',') ?>],
+                                              dataLabels: {
+                                                  enabled: true
+                                              }
+                                              
+                                          }, {
+                                              type: 'line',
+                                              name: '입사자 수',
+                                              data: [<?php echo join($ins, ',') ?>],
+                                              dataLabels: {
+                                                  enabled: true
+                                              }
+                                          }, {
+                                              type: 'spline',
+                                              name: '퇴사자 수',
+                                              data: [<?php echo join($out, ',') ?>],
+                                              dataLabels: {
+                                                  enabled: true
+                                              },
+                                              marker: {
+                                                  lineWidth: 5,
+                                                  lineColor: Highcharts.getOptions().colors[2],
+                                                  fillColor: 'white'
+                                              }
+                                          },   
+                                          {
+                                              type: 'pie',
+                                              name: '',
+                                              data: [],
+                                              center: [300, 280],
+                                              size: 100,
+                                              showInLegend: false,
+                                              dataLabels: {
+                                                  enabled: false
+                                              }
+                                          }]
+                                      });
+
+                                  
+                                  </script>
+   <script>
+      var companys_name = '<?php echo $cname[0]?>'; 
+      var companys_sort = '<?php echo $csort[0]?>';      
+      var companys_addr = '<?php echo $addr[0]?>';  
+      var companys_commend = '<?php echo $pmsg?>';
+     
+      document.getElementById("company_name").innerHTML=companys_name;
+      document.getElementById("sort").innerHTML=companys_sort;
+      document.getElementById("comment").innerHTML=companys_commend;
+
+
+        var map = new naver.maps.Map('map');
+        var myaddress = companys_addr;// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
+        naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+            if (status !== naver.maps.Service.Status.OK) {
+                return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
+            }
+            var result = response.result;
+            // 검색 결과 갯수: result.total
+            // 첫번째 결과 결과 주소: result.items[0].address
+            // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+            var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+            map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+            // 마커 표시
+            var marker = new naver.maps.Marker({
+              position: myaddr,
+              map: map
+            });
+            // 마커 클릭 이벤트 처리
+            naver.maps.Event.addListener(marker, "click", function(e) {
+              if (infowindow.getMap()) {
+                  infowindow.close();
+              } else {
+                  infowindow.open(map, marker);
+              }
+            });
+            // 마크 클릭시 인포윈도우 오픈
+            var infowindow = new naver.maps.InfoWindow({
+                content: '주소: '+companys_addr+'<br/>'+'회사 이름: '+companys_name+'<a href="#" target="_blank"></a>'
+            });
+        });
+  </script>
+
+
+  <script>
+    var companys1_out = '<?php echo $out[0]?>'; 
+    var companys1_in = '<?php echo $ins[0]?>';
+    var companya_name = '<?php echo $cname[0]?>'; 
+    var companys_rates= '<?php echo $cc_rates[0]?>'; 
+    companys_rates*=1;
+    companys1_in*=1;
+    companys1_out*=1;
+
+    var companys_name0='<?php echo $co_name[0]?>'; 
+    var companys_avg0='<?php echo $co_avg[0]?>'; 
+    var companys_name1='<?php echo $co_name[1]?>'; 
+    var companys_avg1='<?php echo $co_avg[1]?>'; 
+    var companys_name2='<?php echo $co_name[2]?>'; 
+    var companys_avg2='<?php echo $co_avg[2]?>'; 
+    var companys_name3='<?php echo $co_name[3]?>'; 
+    var companys_avg3='<?php echo $co_avg[3]?>'; 
+    var companys_name4='<?php echo $co_name[4]?>'; 
+    var companys_avg4='<?php echo $co_avg[4]?>';   
+
+    companys_avg0*=1;
+    companys_avg1*=1;
+    companys_avg2*=1;
+    companys_avg3*=1;
+    companys_avg4*=1;
+
+    var all_company_avg=(companys_avg0+companys_avg1+companys_avg2+companys_avg3+companys_avg4)/4;
+
+    var incompanys_out='<?php echo $arraysums_out?>'; 
+    var incompanys_ins='<?php echo $arraysums_ins?>'; 
+    
+    incompanys_out*=1;
+    incompanys_ins*=1;
+
+    Highcharts.setOptions({
+                                colors: ['#ccff66', '#ff9966', '#2693ff', '#DDDF00', '#ffcc66', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+                                });
+
+    Highcharts.chart('container1', {
+    chart: {
+        
+        type: 'pie'
+    },
+    
+    title: {
+        text: '2018년 퇴사율 비교'
+    },
+    subtitle: {
+        text: 'Click the slices to view versions.'
+    },
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}: {point.y:8.1f}%'
+            }
+        },
+        pie: {
+            
+        }
+
+
+
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:13px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:8.1f}%</b> of total<br/>'
+    },
+
+    "series": [
+        {
+            "name": "Browsers",
+            "colorByPoint": true,
+            "data": [
+                {
+                    "name": "업계평균 퇴사율",
+                    "y": all_company_avg,
+                    "drilldown": "업계평균 퇴사율"
+                },
+                
+                 {
+                    "name": companya_name,
+                    "y": companys_rates,
+                    "drilldown": companya_name
+                }
+            ]
+        }
+    ],
+    "drilldown": {
+        "series": [
+            {
+                "name": "업계평균 퇴사율",
+                "id": "업계평균 퇴사율",
+                "data": [
+                    [
+                    companys_name0,
+                    companys_avg0
+                    ],
+                    [
+                    companys_name1,
+                    companys_avg1
+                    ],
+                    [
+                    companys_name2,
+                    companys_avg2
+                    ],
+                    [
+                    companys_name3,
+                    companys_avg3
+                    ],
+                    [
+                    companys_name4,
+                    companys_avg4
+                    ]
+                   
+                ]
+            },    
+            {
+                "name": companya_name,
+                "id": companya_name,
+                "data": [
+                    [
+                        "입사자 수 total",
+                        incompanys_ins
+                    ],
+                    [
+                        "퇴사자 수 total",
+                        incompanys_out
+                    ]
+                    
+                ]
+            }
+        ]
+    }
+});
+      </script>
+
+
+
+<script>
+    <?php
+          $cpn = $_GET['company'];
+          $db_server = mysql_connect("localhost","qortkdn123","12-76046779dn"); 
+          if(!$db_server) die ("Unable to connect to MySQL :" . mysql_error());
+          mysql_select_db("qortkdn123") or die("Unable to select Database : " . mysql_error());
+          //한글 깨짐 문제 해결위한 추가라인
+          mysql_query("set session character_set_connection=utf8;");
+          mysql_query("set session character_set_results=utf8;");
+          mysql_query("set session character_set_client=utf8;");
+    
+           $query ="select Cc_name, (sum(Cc_out/Cc_total*100))/count(*) from Company_check where Cc_what like '%$csort[0]%' group by Cc_name having (sum(Cc_out/Cc_total*100))/count(*) < 10 AND (sum(Cc_out/Cc_total*100))/count(*) > 0 AND Cc_name <> '$cpn' ORDER BY (sum(Cc_out/Cc_total*100))/count(*)";
+           $result = mysql_query($query); 
+           if(!$result ) die ("Database access failed  : "  . mysql_error());
+           $ccnames = array();
+            for($i=0;$row=mysql_fetch_array($result);$i++){ 
+           $ccnames[$i]=$row[Cc_name];
+            }
+        
+          mysql_free_result($result);
+          mysql_close($db_server);
+      ?>
+</script>
+<script>
+    var companys_rate0= '<?php echo $ccnames[0]?>'; 
+    var companys_rate1= '<?php echo $ccnames[1]?>'; 
+    var companys_rate2= '<?php echo $ccnames[2]?>'; 
+    var companys_rate3= '<?php echo $ccnames[3]?>'; 
+    var companys_rate4= '<?php echo $ccnames[4]?>'; 
+
+    document.getElementById("req1").innerHTML=companys_rate0;
+    document.getElementById("req2").innerHTML=companys_rate1;
+    document.getElementById("req3").innerHTML=companys_rate2;
+    document.getElementById("req4").innerHTML=companys_rate3;
+    document.getElementById("req5").innerHTML=companys_rate4;
+
+ function button0_click() {
+	window.open("http://qortkdn123.dothome.co.kr/?company="+companys_rate0,'_blank');
+}
+function button1_click() {
+	window.open("http://qortkdn123.dothome.co.kr/?company="+companys_rate1,'_blank');
+}
+function button2_click() {
+	window.open("http://qortkdn123.dothome.co.kr/?company="+companys_rate2,'_blank');
+}
+function button3_click() {
+	window.open("http://qortkdn123.dothome.co.kr/?company="+companys_rate3,'_blank');
+}
+function button4_click() {
+	window.open("http://qortkdn123.dothome.co.kr/?company="+companys_rate4,'_blank');
+}
+</script>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+  </body>
+
+</html>

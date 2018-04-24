@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--LOGO-->
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>HIDDEN CHANPION</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+     
+     <style>
+      .entry{
+           width: 100%; height: 160px; 
+           background: linear-gradient(to bottom right,#ffffff, #ffffff);
+       }
+      #container_i {
+      height: 400px;
+      max-width: 800px;
+      margin: 0 auto;
+      }
+
+/* Link the series colors to axis colors */
+.highcharts-color-0 {
+	fill: #7cb5ec;
+	stroke: #7cb5ec;
+}
+.highcharts-axis.highcharts-color-0 .highcharts-axis-line {
+	stroke: #7cb5ec;
+}
+.highcharts-axis.highcharts-color-0 text {
+	fill: #7cb5ec;
+}
+.highcharts-color-1 {
+	fill: #f34a4a;
+	stroke: #f34a4a;
+}
+.highcharts-axis.highcharts-color-1 .highcharts-axis-line {
+	stroke: #f34a4a;
+}
+.highcharts-axis.highcharts-color-1 text {
+	fill: #f34a4a;
+}
+
+      </style>
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <img src="images/logo.png" width="40" height="40"><a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:burlywood;">HIDDEN CHAMPION</a>  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">현재 차트</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">비교 분석</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">결과</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <h1 id="company_name" style="color: antiquewhite"></h1>
+        <script language="JavaScript"> 
+          var today = new Date( ) 
+          var week = new Array('일', '월', '화', '수', '목', '금', '토');
+          var timese=today.getHours();
+          
+          if(timese>12)
+          {
+              timese-=12;
+          }
+          document.write(today.getMonth( )+1 , "월 " , today.getDate( ) , "일 ", week[today.getDay()] , "요일 ",timese, "시 ",today.getMinutes(),"분 ",  '<br />');
+          </script> <br/>
+             <p>직군: <strong id="sort"></strong></p>
+             <p>코멘트: <strong>많은 퇴사 인원이 있음!</strong></p>
+             비 <img src="images/bad.png" width="40" height="40"> 추
+      </div>
+    </header>
+
+    <section id="about">
+      <div id="containers"  style="width: 100%;">
+
+      </div>
+    </section>
+
+
+
+    <section id="services">
+      <div class="uk-overflow-auto" style="width:100%; height: 600px; background-color: #ffffff; float: left;">
+        <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+            <thead>
+                <tr>
+                    <th class="uk-table-shrink">v</th>
+                    <th class="uk-table-shrink">회사명</th>
+                    <th class="uk-width-small">직원</th>
+                    <th class="uk-width-small" style="margin: auto">퇴직</th>
+                    <th class="uk-width-small" style="margin: auto">신입</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="uk-checkbox" type="checkbox"></td>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/samsung.jpg" width="40" alt=""></td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                </tr>
+                <tr>
+                    <td><input class="uk-checkbox" type="checkbox"></td>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/samsung.jpg" width="40" alt=""></td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                </tr>
+                <tr>
+                    <td><input class="uk-checkbox" type="checkbox"></td>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/lg.png" width="40" alt=""></td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                </tr>
+                <tr>
+                    <td><input class="uk-checkbox" type="checkbox"></td>
+                    <td><img class="uk-preserve-width uk-border-circle" src="images/hundai.jpg" width="40" alt=""></td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                    <td class="uk-text-truncate">Lorem ipsum dolor</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div id="container1" class="bg-light" style="width:100%; height: 300px;">
+      </div>
+    </section>
+
+      <footer class="py-5 bg-dark">
+      <div class="container123">
+        <p class="m-0 text-center text-white">Copyright &copy; hidden-champion</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+    <script>
+      <?php
+          $cpn = $_GET['company'];
+          $db_server = mysql_connect("localhost","qortkdn123","12-76046779dn"); 
+          if(!$db_server) die ("Unable to connect to MySQL :" . mysql_error());
+          mysql_select_db("qortkdn123") or die("Unable to select Database : " . mysql_error());
+          //한글 깨짐 문제 해결위한 추가라인
+          mysql_query("set session character_set_connection=utf8;");
+          mysql_query("set session character_set_results=utf8;");
+          mysql_query("set session character_set_client=utf8;");
+          $word=company;
+          //쿼리
+      
+          $query = "SELECT CURRENT_EMPLOYEE, OUT_EMPLOYEE, IN_EMPLOYEE,COMPANY_NAME,SECTORS FROM SHOP WHERE COMPANY_NAME LIKE'%$cpn%'"; //Abcs는 테이블명 
+           $result = mysql_query($query); 
+           if(!$result ) die ("Database access failed  : "  . mysql_error());
+           $cur = array(); 
+           $out = array(); 
+           $ins = array();
+           $cname=array();
+           $csort=array();
+            for($i=0;$row=mysql_fetch_array($result);$i++){ 
+           $cname[$i]=$row[COMPANY_NAME];
+           $cur[$i]=$row[CURRENT_EMPLOYEE]; 
+           $out[$i]=$row[OUT_EMPLOYEE];
+           $ins[$i]=$row[IN_EMPLOYEE];
+           $csort[$i]=$row[SECTORS];
+            }
+          mysql_free_result($result);
+          mysql_close($db_server);
+      ?>
+                                                  Math.easeOutBounce = function (pos) {
+                                      if ((pos) < (1 / 2.75)) {
+                                          return (7.5625 * pos * pos);
+                                      }
+                                      if (pos < (2 / 2.75)) {
+                                          return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
+                                      }
+                                      if (pos < (2.5 / 2.75)) {
+                                          return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
+                                      }
+                                      return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
+                                  };
+
+
+                                  Highcharts.chart('containers', {
+                                      credits: {
+                                          enabled: false
+                                      },
+                                      chart: {
+                                                  type: 'line'
+                                              },
+                                          title: {
+                                              text: '기본 그래프'
+                                          },
+                                          xAxis: {
+                                              className: 'highcharts-colors-0',
+                                              categories: ['17/03', '17/04', '17/05', '17/06', '17/07','17/08', '17/09', '17/10', '17/11', '17/12','18/01','18/02']
+                                          },
+                                          yAxis: {
+                                              className: 'highcharts-colors-1',
+                                              type: 'logarithmic',
+                                              minorTickInterval: '0.61'
+
+                                          }, plotOptions: {
+                                              series: {
+                                                  animation: {
+                                                      duration: 3000,
+                                                      easing: 'easeOutBounce'
+                                                  }
+                                              }
+                                          },
+                                          labels: {
+                                              items: [{
+                                                  html: '',
+                                                  style: {
+                                                      left: '50px',
+                                                      top: '58px',
+                                                      color: (Highcharts.theme && Highcharts.theme.textColor) || 'green'
+                                                  }
+                                              }]
+                                          },
+                                          series: [{
+                                              type: 'column',
+                                              name: '퇴사자 수',
+                                              data: [<?php echo join($out, ',') ?>],
+                                              dataLabels: {
+                                                  enabled: true
+                                              }
+                                              
+                                          }, {
+                                              type: 'column',
+                                              name: '입사자 수',
+                                              data: [<?php echo join($ins, ',') ?>],
+                                              dataLabels: {
+                                                  enabled: true
+                                              }
+                                          }, {
+                                              type: 'spline',
+                                              name: '현재 사원 수',
+                                              data: [<?php echo join($cur, ',') ?>],
+                                              dataLabels: {
+                                                  enabled: true
+                                              },
+                                              marker: {
+                                                  lineWidth: 5,
+                                                  lineColor: Highcharts.getOptions().colors[3],
+                                                  fillColor: 'white'
+                                              }
+                                          },   
+                                          {
+                                              type: 'pie',
+                                              name: '',
+                                              data: [],
+                                              center: [300, 280],
+                                              size: 100,
+                                              showInLegend: false,
+                                              dataLabels: {
+                                                  enabled: false
+                                              }
+                                          }]
+                                      });
+
+                                  
+                                  </script>
+   <script>
+      var companys_name = '<?php echo $cname[0]?>'; 
+      var companys_sort = '<?php echo $csort[0]?>';      
+      document.getElementById("company_name").innerHTML=companys_name;
+      document.getElementById("sort").innerHTML=companys_sort;
+  </script>
+
+  <script>
+      Highcharts.chart('container1', {
+                                          credits: {
+                                          enabled: false
+                                      },
+                                      chart: {
+                                          type: 'column'
+                                      },
+
+                                      title: {
+                                          text: 'Styling axes and columns'
+                                      },
+
+                                      yAxis: [{
+                                          className: 'highcharts-color-0',
+                                          title: {
+                                              text: '입사자 수 총합'
+                                          }
+                                      }, {
+                                          className: 'highcharts-color-1',
+                                          opposite: true,
+                                          title: {
+                                              text: '퇴사자 수 총합'
+                                          }
+                                      }],
+
+                                      plotOptions: {
+                                          column: {
+                                              borderRadius: 5
+                                          }
+                                      },
+
+                                      series: [{
+                                          name: "신입",
+                                          data: [24]
+                                      }, {
+                                          name: "퇴사",
+                                          data: [324],
+                                          yAxis: 1
+                                      }]
+
+                                      });
+      </script>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+  </body>
+
+</html>
