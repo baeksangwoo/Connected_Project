@@ -18,7 +18,7 @@ public class Client {
  Scanner scanner;
 
  public Client() throws UnknownHostException, IOException {
-  socket = new Socket(address, 8888);
+  socket = new Socket(address, 9999);
   System.out.println("Connected Server ..");
  }
 
