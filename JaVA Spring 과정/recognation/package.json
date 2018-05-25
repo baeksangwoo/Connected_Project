@@ -1,0 +1,11 @@
+{
+  "name": "recognation",
+  "version": "0.0.0",
+  "description": "음성인식",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1"
+  },
+  "author": "Sangwoo.co.kr",
+  "license": "ISC"
+}
