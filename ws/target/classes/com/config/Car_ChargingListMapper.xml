@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hw.mapper.Car_ChargingListMapper">
+	<!-- parameterType = "String" 문자열 입력한다 입력 형태 설정 -->
+	<!-- resultType="member" 받는다 받는 형태 설정 -->
+	<!-- 작성 후 세미콜론을 사용안함 -->
+ 	<resultMap type="Car_ChargingList" id="Car_ChargingList">
+		<result column="car_charging_status" property="car_charging_status" />
+		<result column="car_charging_date" property="car_charging_date" />
+		<result column="car_charging_place" property="car_charging_place" />
+		<result column="car_battery_capacity" property="car_battery_capacity" />
+		<result column="car_battery_cicle" property="car_battery_cicle" />		
+		<result column="car_battery_temperature" property="car_battery_temperature" />
+		<result column="car_remain_date" property="car_remain_date" />
+		<result column="car_number" property="car_number" />
+		<result column="start" property="start" />
+		<result column="end" property="end" />
+	</resultMap>
+
+	<select id="select" parameterType="String" resultType="Car_ChargingList">
+		SELECT * FROM ( SELECT * FROM CHARGING_STATION ORDER BY dbms_random.value ) WHERE ROWNUM = 1
+	</select>
+	
+	<select id="selectalls" parameterType="integer" resultType="Car_ChargingList"> 
+		<![CDATA[ SELECT * FROM (SELECT * FROM CAR_BATTERY_CHARGING ORDER BY INDEXUP DESC) WHERE ROWNUM BETWEEN 1 AND #{end} ]]>
+	</select>
+	
+	<!-- 5개씩 가져오겠다 -->
+	<select id="selectall" resultType="Car_ChargingList">
+		<![CDATA[ SELECT * FROM (SELECT * FROM CAR_BATTERY_CHARGING ORDER BY INDEXUP DESC) WHERE ROWNUM<=5]]>
+	</select>
+	
+	<!-- #을 붙이면 ""를 붙여서 보냄, $을 붙이면 있는그대로 보냄 -->
+	<insert id="insert" parameterType="Car_ChargingList">	
+		<selectKey keyProperty="seq" resultType="integer" order="BEFORE">
+      		select INDEXUP.NEXTVAL FROM CAR_CONTROL
+   		</selectKey>
+		INSERT INTO CAR_BATTERY_CHARGING (CAR_CHARGING_STATUS,CAR_CHARGING_DATE,CAR_CHARGING_PLACE,CAR_BATTERY_CAPACITY,CAR_TOTAL_CICLE,CAR_BATTERY_TEMPERATER,CAR_REMAIN_DATE,CAR_NUMBER,INDEXUP) VALUES(#{car_charging_status},#{car_charging_date},#{car_charging_place},${car_battery_capacity},${car_battery_cicle},${car_battery_temperature},${car_remain_date},#{car_number},INDEXUP.NEXTVAL)		
+	</insert>
+
+	<!-- No use -->
+	<update id="update" parameterType="Car_ChargingList">
+		UPDATE CAR_BATTERY_CHARGING SET TEMPER=${TEMPER}, SET_WIND=${set_wind},SET_COOL=${set_cool},SET_WARM=${set_warm},SET_CHARGING_AMOUNT=${set_charging_amount}
+		WHERE CAR_NUMBER=#{CAR_NUMBER}
+	</update>
+	
+	
+	<!-- No use -->
+	<delete id="delete" parameterType="String">
+		DELETE FROM CAR_BATTERY_CHARGING WHERE
+		CAR_NUMBER=#{CAR_NUMBER}
+	</delete>
+</mapper>
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+// Global styling for this template
+/* css 원형 속도 관련 */
+// .containeres {
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	min-height: 100vh;
+// 	background-color: #ededed;
+// }
+
+// .loaderse {
+// 	max-width: 15rem;
+// 	width: 100%;
+// 	height: auto;
+// 	stroke-linecap: round;
+// }
+
+// circle {
+// 	fill: none;
+// 	stroke-width: 3.5;
+// 	animation-name: preloader;
+// 	animation-duration: 3s;
+// 	animation-iteration-count: infinite;
+// 	animation-timing-function: ease-in-out;
+// 	transform-origin: 170px 170px;
+// 	will-change: transform;
+
+// 	&:nth-of-type(1) {
+// 		stroke-dasharray: 550px;
+// 	}
+
+// 	&:nth-of-type(2) {
+// 		stroke-dasharray: 800px;
+// 	}
+
+// 	&:nth-of-type(3) {
+// 		stroke-dasharray: 750px;
+// 	}
+
+// 	&:nth-of-type(4) {
+// 		stroke-dasharray: 200px;
+// 	}
+
+// 	@for $i from 1 through 4 {
+// 		&:nth-of-type(#{$i}) {
+// 			animation-delay: -#{$i * 0.15}s;
+// 		}
+// 	}
+// }
+
+// @keyframes preloader {
+// 	50% {
+// 		transform: rotate(360deg);
+// 	}
+// }
+/* css 원형 속도 관련 */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body.sticky-footer {
+  margin-bottom: $sticky-footer-height;
+  .content-wrapper {
+    min-height: calc(100vh - #{$sticky-footer-height} - #{$navbar-base-height});
+  }
+}
+
+body.fixed-nav {
+  padding-top: $navbar-base-height;
+}
+
+.content-wrapper {
+  min-height: calc(100vh - #{$sticky-footer-height});
+  padding-top: 1rem;
+}
+
+// Scroll to top button
+.scroll-to-top {
+  position: fixed;
+  right: 15px;
+  bottom: 3px;
+
+  display: none;
+
+  width: 50px;
+  height: 50px;
+
+  text-align: center;
+
+  color: white;
+  background: fade-out($gray-800, .5);
+
+  line-height: 45px;
+  &:focus,
+  &:hover {
+    color: white;
+  }
+  &:hover {
+    background: $gray-800;
+  }
+  i {
+    font-weight: 800;
+  }
+}

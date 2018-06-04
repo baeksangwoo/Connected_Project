@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hw.mapper.Car_latlongMapper">
+	<!-- parameterType = "String" 문자열 입력한다 입력 형태 설정 -->
+	<!-- resultType="member" 받는다 받는 형태 설정 -->
+	<!-- 작성 후 세미콜론을 사용안함 -->
+ 	<resultMap type="Car_latlong" id="Car_latlong">
+		<result column="start" property="start" />
+		<result column="end" property="end" />
+	</resultMap>
+
+	<select id="select" parameterType="String"  resultType="Car_latlong">
+		SELECT * FROM CAR_LATLONG	
+	</select>
+	<!-- No use -->
+	<select id="selectall" resultType="Car_latlong"><!-- ${start} AND ${end} -->
+		SELECT * FROM CAR_BATTERY_CHARGING WHERE INDEXUP BETWEEN 1 AND 4 ORDER BY INDEXUP DESC 
+	</select>
+	
+	<!-- #을 붙이면 ""를 붙여서 보냄, $을 붙이면 있는그대로 보냄 -->
+	<insert id="insert" parameterType="Car_latlong">
+		INSERT INTO CAR_AIR_CONDITION (TEMPER,DUST_M,DUST_S,HUMIDITY,INSIDE_TIME,CAR_NUMBER) VALUES(${temper},${dust_m},${dust_s},${humidity},#{inside_time},#{car_number})		
+	</insert>
+	
+	<!-- No use -->
+	<update id="update" parameterType="Car_latlong">
+		UPDATE CAR_AIR_CONDITION SET TEMPER=${TEMPER}, SET_WIND=${set_wind},SET_COOL=${set_cool},SET_WARM=${set_warm},SET_CHARGING_AMOUNT=${set_charging_amount}
+		WHERE CAR_NUMBER=#{CAR_NUMBER}
+	</update>
+	<!-- No use -->
+	<delete id="delete" parameterType="String">
+		DELETE FROM CAR_AIR_CONDITION WHERE
+		CAR_NUMBER=#{CAR_NUMBER}
+	</delete>
+</mapper>
+
+
+
+
+
+
